@@ -9,3 +9,33 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Producer {
+  id      Int    @id @default(autoincrement())
+  name    String @unique
+  website String
+  feedUrl String @unique
+
+  posts       Post[]
+  subscribers User[]
+}
+
+model Post {
+  id        String   @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  content   String
+
+  producer   Producer @relation(fields: [producerId], references: [id])
+  producerId Int
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  username String @unique
+  password String // SHA-512 hash
+
+  subscriptions Producer[]
+}
