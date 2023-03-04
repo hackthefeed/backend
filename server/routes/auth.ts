@@ -84,8 +84,9 @@ server.get('/auth/microsoft', { schema: microsoftAuthSchema }, async (request, r
 		});
 
 		// frontend should store the key in localStorage
-		return response.redirect(200, `https://hackthefeed.com/?key=${user.key}`);
-	} catch {
+		return response.redirect(302, `https://hackthefeed.com/?key=${user.key}`);
+	} catch (e) {
+		console.error(e);
 		return response.status(403).send({
 			message: 'Invalid authenication code.',
 			success: false,
