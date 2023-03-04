@@ -12,6 +12,22 @@ const loginSchema = {
 			password: { type: 'string' },
 		},
 	},
+	response: {
+		200: {
+			type: 'object',
+			properties: {
+				success: true,
+				key: { type: 'string' },
+			},
+		},
+		401: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid username or password.',
+			},
+		},
+	},
 };
 
 type LoginSchema = {

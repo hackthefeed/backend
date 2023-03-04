@@ -13,6 +13,27 @@ const registerSchema = {
 			password: { type: 'string' },
 		},
 	},
+	response: {
+		201: {
+			type: 'object',
+			properties: {
+				success: true,
+				user: {
+					type: 'object',
+					properties: {
+						key: { type: 'string' },
+					},
+				},
+			},
+		},
+		400: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid email.',
+			},
+		},
+	},
 };
 
 type RegisterSchema = {

@@ -10,6 +10,32 @@ const meSchema = {
 			key: { type: 'string' },
 		},
 	},
+	response: {
+		200: {
+			type: 'object',
+			properties: {
+				success: true,
+				data: {
+					type: 'object',
+					properties: {
+						id: { type: 'number' },
+						username: { type: 'string' },
+						displayName: { type: 'string' },
+						email: { type: 'string' },
+						createdAt: { type: 'string' },
+						updatedAt: { type: 'string' },
+					},
+				},
+			},
+		},
+		401: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid authentication key.',
+			},
+		},
+	},
 };
 
 type MeSchema = {

@@ -12,6 +12,22 @@ const createNoteSchema = {
 			key: { type: 'string' },
 		},
 	},
+	response: {
+		200: {
+			type: 'object',
+			properties: {
+				success: true,
+				message: 'Note created successfully.',
+			},
+		},
+		401: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid authentication key.',
+			},
+		},
+	},
 };
 
 const deleteNoteSchema = {
@@ -23,6 +39,29 @@ const deleteNoteSchema = {
 			postId: { type: 'string' },
 			noteId: { type: 'number' },
 			key: { type: 'string' },
+		},
+	},
+	response: {
+		200: {
+			type: 'object',
+			properties: {
+				success: true,
+				message: 'Note deleted successfully.',
+			},
+		},
+		401: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid authentication key.',
+			},
+		},
+		400: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Unknown noteId or postId.',
+			},
 		},
 	},
 };

@@ -12,6 +12,21 @@ const feedSubscribeSchema = {
 			key: { type: 'string' },
 		},
 	},
+	response: {
+		200: {
+			type: 'object',
+			properties: {
+				success: true,
+			},
+		},
+		401: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid authentication key.',
+			},
+		},
+	},
 };
 
 const feedUnsubscribeSchema = {
@@ -22,6 +37,21 @@ const feedUnsubscribeSchema = {
 		properties: {
 			producerId: { type: 'number' },
 			key: { type: 'string' },
+		},
+	},
+	response: {
+		200: {
+			type: 'object',
+			properties: {
+				success: true,
+			},
+		},
+		401: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: 'Invalid authentication key.',
+			},
 		},
 	},
 };
@@ -35,6 +65,24 @@ server.get('/feed/list', {
 	schema: {
 		description: 'Lists all feeds',
 		tags: ['feed'],
+		response: {
+			200: {
+				type: 'object',
+				properties: {
+					success: true,
+					data: {
+						type: 'array',
+						items: {
+							type: 'object',
+							properties: {
+								id: { type: 'number' },
+								name: { type: 'string' },
+							},
+						},
+					},
+				},
+			},
+		},
 	},
 }, async () => {
 	const feeds = await prisma.producer.findMany({

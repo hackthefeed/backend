@@ -14,6 +14,18 @@ const microsoftAuthSchema = {
 			code: { type: 'string' },
 		},
 	},
+	response: {
+		200: {
+			description: 'Successful response, redirects to home page',
+		},
+		403: {
+			type: 'object',
+			properties: {
+				success: false,
+				message: { type: 'string' },
+			},
+		},
+	},
 };
 
 type MicrosoftAuthQuery = {
