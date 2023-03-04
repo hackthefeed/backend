@@ -40,8 +40,8 @@ model Note {
   id      Int    @id @default(autoincrement())
   content String // encrypted
 
-  post         Post   @relation(fields: [postId], references: [id])
-  postId       String
+  post     Post   @relation(fields: [postId], references: [id])
+  postId   String
   author   User   @relation(fields: [authorId], references: [id])
   authorId Int
 
@@ -50,11 +50,17 @@ model Note {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  username String @unique
-  password String // SHA-512 hash
-  key      String @default(uuid()) @db.Uuid @unique
+  id          Int     @id @default(autoincrement())
+  // lower case
+  email       String  @unique
+  // not present if using Microsoft login
+  // lower case
+  username    String? @unique
+  // present if using Microsoft login
+  displayName String?
+  // not present if using Microsoft login
+  password    String? // SHA-512 hash
+  key         String  @unique @default(uuid()) @db.Uuid
 
   subscriptions Producer[]
   notes         Note[]

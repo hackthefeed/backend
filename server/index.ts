@@ -1,4 +1,6 @@
 // import routes so they register routes
+import 'dotenv/config';
+
 import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
@@ -6,8 +8,6 @@ import swaggerUi from '@fastify/swagger-ui';
 import { httpServer, server } from './server';
 
 async function main() {
-	console.log('swgger');
-
 	server.get('/', async () => {
 		return {
 			name: 'HackTheFeed API',
@@ -50,6 +50,7 @@ async function main() {
 	await import('./routes/register');
 	await import('./routes/login');
 	await import('./routes/feed');
+	await import('./routes/auth');
 	const { process } = await import('./routes/websocket');
 
 	httpServer.listen(8082);

@@ -27,7 +27,6 @@ function validEmail(email: string) {
 	return EMAIL_REGEX.test(email);
 }
 
-console.log('register');
 server.post('/register', { schema: registerSchema }, async (request, response) => {
 	const payload = request.body as RegisterSchema;
 
@@ -41,8 +40,8 @@ server.post('/register', { schema: registerSchema }, async (request, response) =
 	try {
 		const user = await prisma.user.create({
 			data: {
-				username: payload.username,
-				email: payload.email,
+				username: payload.username.toLowerCase(),
+				email: payload.email.toLowerCase(),
 				password: hash,
 			},
 			select: {
