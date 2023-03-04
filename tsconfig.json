@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "es2022",
 		"module": "es2022",
-		"baseUrl": "./src",
+		"baseUrl": "./",
 		"paths": {
 			"$/*": ["*"]
 		},
@@ -17,6 +17,6 @@
 	"tsc-alias": {
 		"resolveFullPaths": true
 	},
-	"include": ["src/**/*.ts"],
+	"include": ["./**/*.ts"],
 	"exclude": ["node_modules", "build"]
 }

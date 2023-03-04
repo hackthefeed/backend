@@ -1,0 +1,562 @@
+[
+	{
+		"name": "The Hacker News RSS Feed",
+		"url": "https://feeds.feedburner.com/TheHackersNews?format=xml"
+	},
+	{
+		"name": "Graham Cluley RSS Feed",
+		"url": "https://www.grahamcluley.com/feed/"
+	},
+	{
+		"name": "Schneier on Security RSS Feed",
+		"url": "https://www.schneier.com/blog/atom.xml"
+	},
+	{
+		"name": "Krebs on Security RSS Feed",
+		"url": "http://krebsonsecurity.com/feed/"
+	},
+	{
+		"name": "CSO Online RSS Feed",
+		"url": "https://www.csoonline.com/in/index.rss"
+	},
+	{
+		"name": "Dark Reading RSS Feed",
+		"url": "https://www.darkreading.com/rss/all.xml"
+	},
+	{
+		"name": "We Live Security RSS Feed",
+		"url": "http://feeds.feedburner.com/eset/blog"
+	},
+	{
+		"name": "Naked Security RSS Feed",
+		"url": "https://nakedsecurity.sophos.com/feed/"
+	},
+	{
+		"name": "Infosecurity Magazine - Information Security & IT Security RSS Feed",
+		"url": "https://www.infosecurity-magazine.com/rss/news/"
+	},
+	{
+		"name": "JISA Softech RSS Feed",
+		"url": "https://www.jisasoftech.com/feed/"
+	},
+	{
+		"name": "Vicente Aceituno Canal RSS Feed",
+		"url": "https://medium.com/feed/@vaceituno"
+	},
+	{
+		"name": "Da Vinci Cybersecurity RSS Feed",
+		"url": "https://davinciforensics.co.za/cybersecurity/feed/"
+	},
+	{
+		"name": "Teri Radichel RSS Feed",
+		"url": "https://medium.com/feed/@2ndsightlab"
+	},
+	{
+		"name": "AT&T Cybersecurity Blog RSS Feed",
+		"url": "https://cybersecurity.att.com/site/blog-all-rss"
+	},
+	{
+		"name": "Cisco Blog » Security RSS Feed",
+		"url": "https://blogs.cisco.com%20/security/feed"
+	},
+	{
+		"name": "McAfee Antivirus | Securing Tomorrow RSS Feed",
+		"url": "https://www.mcafee.com/blogs/feed/"
+	},
+	{
+		"name": "NSTIC Blog RSS Feed",
+		"url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml"
+	},
+	{
+		"name": "Trend Micro Simply Security RSS Feed",
+		"url": "http://feeds.trendmicro.com/TrendMicroResearch"
+	},
+	{
+		"name": "BleepingComputer RSS Feed",
+		"url": "https://www.bleepingcomputer.com/feed"
+	},
+	{
+		"name": "Security on TechRepublic RSS Feed",
+		"url": "http://www.techrepublic.com/rssfeeds/topic/security/?feedType=rssfeeds"
+	},
+	{
+		"name": "Computerworld | Security RSS Feed",
+		"url": "https://www.computerworld.com/uk/category/security/index.rss"
+	},
+	{
+		"name": "Threat Insight Blog - Cybersecurity Intelligence | Proofpoint RSS Feed",
+		"url": "https://www.proofpoint.com/us/rss.xml"
+	},
+	{
+		"name": "Imperva Blog | Cyber Security Research, News & Insights RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "TrustArc Blog RSS Feed",
+		"url": "https://trustarc.com/blog/feed/"
+	},
+	{
+		"name": "IdentityIQ RSS Feed",
+		"url": "https://www.identityiq.com/feed/"
+	},
+	{
+		"name": "Acunetix | Web Security Blog RSS Feed",
+		"url": "https://www.acunetix.com/blog/feed/"
+	},
+	{
+		"name": "Quick Heal Antivirus Blog RSS Feed",
+		"url": "https://blogs.quickheal.com/feed/"
+	},
+	{
+		"name": "Webroot Blog RSS Feed",
+		"url": "https://www.webroot.com/blog/feed/"
+	},
+	{
+		"name": "ZoneAlarm Blog RSS Feed",
+		"url": "https://blog.zonealarm.com/feed/"
+	},
+	{
+		"name": "UpGuard Blog RSS Feed",
+		"url": "https://www.upguard.com/blog/rss.xml"
+	},
+	{
+		"name": "Seqrite Blog RSS Feed",
+		"url": "https://www.seqrite.com/blog/feed/"
+	},
+	{
+		"name": "PCI SSC Blog RSS Feed",
+		"url": "https://blog.pcisecuritystandards.org/rss.xml"
+	},
+	{
+		"name": "Heimdal Security Blog RSS Feed",
+		"url": "https://heimdalsecurity.com/blog/feed/"
+	},
+	{
+		"name": "InfoSec Insights RSS Feed",
+		"url": "https://sectigostore.com/blog/feed/"
+	},
+	{
+		"name": "Security Affairs RSS Feed",
+		"url": "http://securityaffairs.co/wordpress/feed"
+	},
+	{
+		"name": "Lohrmann on Cybersecurity | Government Technology RSS Feed",
+		"url": "https://feeds.feedburner.com/govtech/blogs/lohrmann_on_infrastructure"
+	},
+	{
+		"name": "IT Governance Blog | Cyber Security RSS Feed",
+		"url": "https://www.itgovernance.co.uk/blog/category/cyber-security/feed"
+	},
+	{
+		"name": "Wallarm Blog RSS Feed",
+		"url": "https://lab.wallarm.com/feed"
+	},
+	{
+		"name": "Troy Hunt RSS Feed",
+		"url": "https://www.troyhunt.com/rss/"
+	},
+	{
+		"name": "Tripwire Blog RSS Feed",
+		"url": "https://www.tripwire.com/state-of-security/feed/"
+	},
+	{
+		"name": "SecPod RSS Feed",
+		"url": "https://www.secpod.com/blog/feed/"
+	},
+	{
+		"name": "Cheap SSL Shop RSS Feed",
+		"url": "https://www.cheapsslshop.com/blog/feed/"
+	},
+	{
+		"name": "Cyber Talk RSS Feed",
+		"url": "https://www.cybertalk.org/feed"
+	},
+	{
+		"name": "SecureBlitz RSS Feed",
+		"url": "https://secureblitz.com/feed/"
+	},
+	{
+		"name": "Binary Defense RSS Feed",
+		"url": "https://www.binarydefense.com/feed/"
+	},
+	{
+		"name": "Cyber Defense Magazine RSS Feed",
+		"url": "https://www.cyberdefensemagazine.com/feed/"
+	},
+	{
+		"name": "LogPoint' RSS Feed",
+		"url": "https://www.logpoint.com/en/feed/"
+	},
+	{
+		"name": "CyberHoot RSS Feed",
+		"url": "https://cyberhoot.com/category/blog/feed/"
+	},
+	{
+		"name": "SOC Prime RSS Feed",
+		"url": "https://socprime.com/feed/"
+	},
+	{
+		"name": "Anomali RSS Feed",
+		"url": "https://www.anomali.com/site/blog-rss"
+	},
+	{
+		"name": "Hacker Combat | Cyber Security and Hacking News RSS Feed",
+		"url": "https://hackercombat.com/feed/"
+	},
+	{
+		"name": "Pivot Point Security RSS Feed",
+		"url": "https://www.pivotpointsecurity.com/feed/"
+	},
+	{
+		"name": "ClearNetwork, Inc RSS Feed",
+		"url": "https://www.clearnetwork.com/feed/"
+	},
+	{
+		"name": "Application and Cybersecurity Blog | Security Innovation RSS Feed",
+		"url": "https://blog.securityinnovation.com/rss.xml"
+	},
+	{
+		"name": "Cyber-DB RSS Feed",
+		"url": "https://www.cyberdb.co/blog/feed/"
+	},
+	{
+		"name": "Google Online Security Blog RSS Feed",
+		"url": "http://feeds.feedburner.com/GoogleOnlineSecurityBlog"
+	},
+	{
+		"name": "BlackFog RSS Feed",
+		"url": "https://www.blackfog.com/feed/"
+	},
+	{
+		"name": "Entersoft Security Blog RSS Feed",
+		"url": "https://blog.entersoftsecurity.com/feed/"
+	},
+	{
+		"name": "TAC Security RSS Feed",
+		"url": "https://tacsecurity.com/feed/"
+	},
+	{
+		"name": "WebARX RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "PrivacySavvy RSS Feed",
+		"url": "https://privacysavvy.com/feed/"
+	},
+	{
+		"name": "Netsparker RSS Feed",
+		"url": "https://www.netsparker.com/blog/rss/"
+	},
+	{
+		"name": "Tao Security RSS Feed",
+		"url": "https://taosecurity.blogspot.com/feeds/posts/default?alt=rss"
+	},
+	{
+		"name": "The Last Watchdog RSS Feed",
+		"url": "https://www.lastwatchdog.com/feed/"
+	},
+	{
+		"name": "Marco Ramilli's Blog RSS Feed",
+		"url": "https://marcoramilli.com/feed/"
+	},
+	{
+		"name": "DataSunrise Data & DB Security RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "MazeBolt Security Blog RSS Feed",
+		"url": "https://blog.mazebolt.com/rss.xml"
+	},
+	{
+		"name": "K7 Computing Blog RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "Binary Blogger RSS Feed",
+		"url": "https://binaryblogger.com/feed/"
+	},
+	{
+		"name": "ANY.RUN | Cybersecurity Blog RSS Feed",
+		"url": "https://any.run/cybersecurity-blog/feed/"
+	},
+	{
+		"name": "PC Matic TechTalk RSS Feed",
+		"url": "https://techtalk.pcmatic.com/feed/"
+	},
+	{
+		"name": "Veracode Security Blog RSS Feed",
+		"url": "http://www.veracode.com/blog/feed/"
+	},
+	{
+		"name": "Twingate RSS Feed",
+		"url": "https://www.twingate.com/blog.rss.xml"
+	},
+	{
+		"name": "Help Net Security RSS Feed",
+		"url": "https://www.helpnetsecurity.com/feed/"
+	},
+	{
+		"name": "Cyber Management Alliance RSS Feed",
+		"url": "https://www.cm-alliance.com/cybersecurity-blog/rss.xml"
+	},
+	{
+		"name": "VISTA InfoSec Blog RSS Feed",
+		"url": "https://www.vistainfosec.com/feed/"
+	},
+	{
+		"name": "Data Privacy Manager RSS Feed",
+		"url": "https://dataprivacymanager.net/feed/"
+	},
+	{
+		"name": "WeSecureApp RSS Feed",
+		"url": "https://wesecureapp.com/feed/"
+	},
+	{
+		"name": "G5 Cyber Security Blog RSS Feed",
+		"url": "https://blog.g5cybersecurity.com/feed/"
+	},
+	{
+		"name": "CyberIQs RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "SecurityParrot RSS Feed",
+		"url": "https://securityparrot.com/feed/"
+	},
+	{
+		"name": "Hacking Vision RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "Cyber Crimes Watch RSS Feed",
+		"url": "https://www.cybercrimeswatch.com/feed/"
+	},
+	{
+		"name": "REVE Antivirus Blog RSS Feed",
+		"url": "https://www.reveantivirus.com/blog/lan/en/feed"
+	},
+	{
+		"name": "SANS Institute Security Awareness Tip of the Day RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "Flying Penguin RSS Feed",
+		"url": "https://www.flyingpenguin.com/?feed=rss2"
+	},
+	{
+		"name": "Adam Levin RSS Feed",
+		"url": "https://adamlevin.com/feed/"
+	},
+	{
+		"name": "Be4Sec | An Information Security Blog RSS Feed",
+		"url": "https://be4sec.com/feed/"
+	},
+	{
+		"name": "Dr. Erdal Ozkaya Personal Blog RSS Feed",
+		"url": "https://www.erdalozkaya.com/feed/"
+	},
+	{
+		"name": "CnSight.io RSS Feed",
+		"url": "https://cnsight.io/blog/feed/"
+	},
+	{
+		"name": "Identity Defined Security Alliance RSS Feed",
+		"url": "https://www.idsalliance.org/feed/"
+	},
+	{
+		"name": "Exploit One RSS Feed",
+		"url": "https://www.exploitone.com/feed/"
+	},
+	{
+		"name": "InfoSec Digest RSS Feed",
+		"url": "https://www.tsfactory.com/forums/blogs/category/infosec-digest/feed/"
+	},
+	{
+		"name": "CyberPilot Blog RSS Feed",
+		"url": "https://www.cyberpilot.io/cyberpilot-blog/rss.xml"
+	},
+	{
+		"name": "Canary Trap RSS Feed",
+		"url": "https://www.canarytrap.com/feed/"
+	},
+	{
+		"name": "CyberWorkx RSS Feed",
+		"url": "https://cyberworkx.in/feed/"
+	},
+	{
+		"name": "Real Secure RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "Secureblink Blog RSS Feed",
+		"url": "https://www.secureblink.com/rss-feeds/threat-feed"
+	},
+	{
+		"name": "Cloudbric RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "Cyber Security & Cloud Expo Blog RSS Feed",
+		"url": "https://www.cybersecuritycloudexpo.com/feed/"
+	},
+	{
+		"name": "The Cyber Express RSS Feed",
+		"url": "https://thecyberexpress.com/feed"
+	},
+	{
+		"name": "Data and computer security | The Guardian RSS Feed",
+		"url": "https://www.theguardian.com/technology/data-computer-security/rss"
+	},
+	{
+		"name": "Threatpost RSS Feed",
+		"url": "https://threatpost.com/feed/"
+	},
+	{
+		"name": "Ivan Novikov RSS Feed",
+		"url": "https://medium.com/feed/@d0znpp"
+	},
+	{
+		"name": "ScienceSoft | Information Security Blogs RSS Feed",
+		"url": "https://www.scnsoft.com/blog/category/information-security/atom"
+	},
+	{
+		"name": "IT Security Central RSS Feed",
+		"url": "https://itsecuritycentral.teramind.co/feed/"
+	},
+	{
+		"name": "360Quadrants RSS Feed",
+		"url": "https://blog.360quadrants.com/feed/"
+	},
+	{
+		"name": "Haxf4rall RSS Feed",
+		"url": "https://follow.it/haxf4rall1"
+	},
+	{
+		"name": "TechnoEdge Learning RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "RevBits RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "IS Decisions RSS Feed",
+		"url": "https://www.isdecisions.com/blog/feed/"
+	},
+	{
+		"name": "Infopercept RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "NoticeBored RSS Feed",
+		"url": "https://feeds.feedburner.com/NoticeBored"
+	},
+	{
+		"name": "SafeAeon RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "Cybermaniacs RSS Feed",
+		"url": "https://thecybermaniacs.com/feed/"
+	},
+	{
+		"name": "Virtualattacks | It's News About Next Generation of Cyber Security RSS Feed",
+		"url": "https://virtualattacks.com/feed/"
+	},
+	{
+		"name": "Lynx Technology Partners RSS Feed",
+		"url": "https://blog.lynxtechnologypartners.com/rss.xml"
+	},
+	{
+		"name": "Curricula | Cyber Security Awareness Blog RSS Feed",
+		"url": "https://www.getcurricula.com/feed"
+	},
+	{
+		"name": "SecurityMadeSimple RSS Feed",
+		"url": "https://www.securitymadesimple.org/cybersecurity-blog?format=rss"
+	},
+	{
+		"name": "Information Trust Exchange Governing Association RSS Feed",
+		"url": "https://itega.org/feed/"
+	},
+	{
+		"name": "ZENOSEC RSS Feed",
+		"url": "https://zeno-sec.com/feed/"
+	},
+	{
+		"name": "IT Security Professional RSS Feed",
+		"url": "https://itsecuritypro.weebly.com/1/feed"
+	},
+	{
+		"name": "Aghiath Chbib RSS Feed",
+		"url": "https://aghiathchbib.com/feed/"
+	},
+	{
+		"name": "Between The Hacks RSS Feed",
+		"url": "https://feeds.feedburner.com/ckdiii"
+	},
+	{
+		"name": "Black Swan Security RSS Feed",
+		"url": "https://blog.blackswansecurity.com/feed/"
+	},
+	{
+		"name": "Infinigate UK | IT Security Channel News | VSEC Blog RSS Feed",
+		"url": "https://blog.infinigate.co.uk/rss.xml"
+	},
+	{
+		"name": "Qualstra Consulting RSS Feed",
+		"url": "https://qualstraconsulting.com/feed/"
+	},
+	{
+		"name": "Ignyte Assurance Platform RSS Feed",
+		"url": "https://ignyteplatform.com/feed/"
+	},
+	{
+		"name": "Gatefy RSS Feed",
+		"url": "https://gatefy.com/feed/"
+	},
+	{
+		"name": "Virtru RSS Feed",
+		"url": "https://www.virtru.com/feed/"
+	},
+	{
+		"name": "Secured You RSS Feed",
+		"url": "https://www.securedyou.com/feed/"
+	},
+	{
+		"name": "emPower eLearning | Blog RSS Feed",
+		"url": "https://www.empowerelearning.com/blog/feed/"
+	},
+	{
+		"name": "Zartech RSS Feed",
+		"url": "https://blog.zartech.net/feed/"
+	},
+	{
+		"name": "IT Security Expert RSS Feed",
+		"url": "https://blog.itsecurityexpert.co.uk/feeds/posts/default?alt=atom"
+	},
+	{
+		"name": "Siemplify RSS Feed",
+		"url": "https://www.siemplify.co/feed/"
+	},
+	{
+		"name": "Security Weekly RSS Feed",
+		"url": "http://securityweekly.com/podcast/psw.xml"
+	},
+	{
+		"name": "SensorsTechForum RSS Feed",
+		"url": "https://blog.feedspot.com/cyber_security_rss_feeds/"
+	},
+	{
+		"name": "ImmuniWeb RSS Feed",
+		"url": "http://feeds.feedburner.com/high-tech_bridge_corporate_news"
+	},
+	{
+		"name": "Infosavvy RSS Feed",
+		"url": "https://info-savvy.com/feed/"
+	},
+	{
+		"name": "WebOrion RSS Feed",
+		"url": "https://www.theweborion.com/feed/"
+	}
+]
