@@ -1,17 +1,56 @@
 // import routes so they register routes
-import './routes/register';
-import './routes/login';
-import './routes/feed';
-
 import cors from '@fastify/cors';
+import swagger from '@fastify/swagger';
+import swaggerUi from '@fastify/swagger-ui';
 
-import { process } from './routes/websocket';
 import { httpServer, server } from './server';
 
 async function main() {
+	console.log('swgger');
+
+	server.get('/', async () => {
+		return {
+			name: 'HackTheFeed API',
+			version: '0.1.0',
+		};
+	});
+
 	await server.register(cors, {
 		origin: '*',
 	});
+
+	await server.register(swagger, {
+		swagger: {
+			info: {
+				title: 'HackTheFeed',
+				description: 'HackTheFeed API documentation',
+				version: '0.1.0',
+			},
+			consumes: ['application/json'],
+			produces: ['application/json'],
+		},
+	});
+
+	await server.register(swaggerUi, {
+		routePrefix: '/docs',
+		uiConfig: {
+			docExpansion: 'full',
+			deepLinking: false,
+		},
+		uiHooks: {
+			onRequest: function (request, reply, next) { next(); },
+			preHandler: function (request, reply, next) { next(); },
+		},
+		staticCSP: true,
+		transformStaticCSP: (header) => header,
+		transformSpecification: (swaggerObject) => { return swaggerObject; },
+		transformSpecificationClone: true,
+	});
+
+	await import('./routes/register');
+	await import('./routes/login');
+	await import('./routes/feed');
+	const { process } = await import('./routes/websocket');
 
 	httpServer.listen(8082);
 

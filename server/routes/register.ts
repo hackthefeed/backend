@@ -27,6 +27,7 @@ function validEmail(email: string) {
 	return EMAIL_REGEX.test(email);
 }
 
+console.log('register');
 server.post('/register', { schema: registerSchema }, async (request, response) => {
 	const payload = request.body as RegisterSchema;
 
