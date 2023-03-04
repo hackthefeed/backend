@@ -13,6 +13,7 @@ const microsoftAuthSchema = {
 		properties: {
 			code: { type: 'string' },
 		},
+		required: ['code'],
 	},
 	response: {
 		200: {
