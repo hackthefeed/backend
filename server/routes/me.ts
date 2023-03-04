@@ -64,18 +64,21 @@ const mePostsSchema = {
 					enum: [true],
 				},
 				data: {
-					type: 'object',
-					properties: {
-						id: { type: 'number' },
-						title: { type: 'string' },
-						content: { type: 'string' },
-						createdAt: { type: 'string' },
-						updatedAt: { type: 'string' },
-						producer: {
-							type: 'object',
-							properties: {
-								id: { type: 'number' },
-								name: { type: 'string' },
+					type: 'array',
+					items: {
+						type: 'object',
+						properties: {
+							id: { type: 'number' },
+							title: { type: 'string' },
+							content: { type: 'string' },
+							createdAt: { type: 'string' },
+							updatedAt: { type: 'string' },
+							producer: {
+								type: 'object',
+								properties: {
+									id: { type: 'number' },
+									name: { type: 'string' },
+								},
 							},
 						},
 					},
