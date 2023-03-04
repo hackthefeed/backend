@@ -26,14 +26,14 @@ async function main() {
 		origin: '*',
 	});
 
-	httpServer.listen(8081);
+	httpServer.listen(8082);
 
 	const api = await server.listen({
 		host: '0.0.0.0',
-		port: 8080,
+		port: 8081,
 	});
 
-	console.log(`Listening at ${api} and 0.0.0.0:8081`);
+	console.log(`Listening at ${api} and 0.0.0.0:8082`);
 
 	// process feed updates
 	process();
