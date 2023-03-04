@@ -1,9 +1,5 @@
-// scrape rss feed and store in database
-// run every few minutes
-// add function to add new rss feeds to database
-
 import axios from 'axios';
-import { Producer } from '@prisma/client';
+import { Post, Producer } from '@prisma/client';
 import { prisma } from '../database';
 import { parse } from './parse';
 import { sleep } from './util';
@@ -38,7 +34,7 @@ export function getAllFeeds() {
 	return feeds;
 }
 
-export async function updateFeed(feed: Producer) {
+export async function updateFeed(feed: Producer, callback: (post: Post) => void) {
 	const response = await axios.get(feed.feedUrl).catch(err => {
 		console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err);
 	});
@@ -46,18 +42,31 @@ export async function updateFeed(feed: Producer) {
 	if (!response) return;
 
 	const xml = parse(response.data);
-	const items = xml.rss.channel.item;
+	const items: FeedItem[] = xml.rss.channel.item;
 
 	for (const item of items) {
-		const data = await prisma.producer.upsert({
-			where: {
-				id
+		const post = await prisma.post.create({
+			data: {
+				id: item.guid,
+				title: item.title,
+				content: item.description,
+				createdAt: new Date(item.pubDate),
+				producer: {
+					connect: {
+						id: feed.id
+					}
+				}
 			}
-		})
+		}).catch(() => null);
+
+		// if it exists, we've already sent the update
+		if (post === null) continue;
+
+		callback(post);
 	}
 }
 
-async function main() {
+export async function generateFeed(delayMs: number = 300_000, callback: (post: Post) => void) {
 	const feeds = await getAllFeeds();
 	let lastUpdate = Date.now();
 
@@ -65,17 +74,15 @@ async function main() {
 		for (const feed of feeds) {
 			console.log(`Updating feed "${feed.name}" (${feed.feedUrl})...`);
 
-			await updateFeed(feed);
+			await updateFeed(feed, callback);
 		}
 
 		const now = Date.now();
 		const elapsed = now - lastUpdate;
-		const wait = 1000 * 60 * 5 - elapsed;
+		const wait = delayMs - elapsed;
 
 		if (wait > 0) {
 			await sleep(wait);
 		}
 	}
 }
-
-main();
