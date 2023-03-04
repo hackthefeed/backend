@@ -8,7 +8,8 @@
 		"tsc-alias": "^1.8.2"
 	},
 	"scripts": {
-		"build": "npx prisma generate && npx tsc --project tsconfig.json && npx tsc-alias -p tsconfig.json"
+		"build": "npx prisma generate && npx tsc --project tsconfig.json && npx tsc-alias -p tsconfig.json",
+		"eslint": "npx eslint --ext .ts ."
 	},
 	"repository": {
 		"type": "git",

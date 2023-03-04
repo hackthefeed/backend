@@ -24,7 +24,7 @@ jobs:
         run: npx prisma generate
 
       - name: Run ESLint
-        run: yarn run eslint src/**/*.ts
+        run: yarn run eslint ./**/*.ts
 
       - name: Run TypeScript
         run: yarn run tsc --project tsconfig.json --noEmit
