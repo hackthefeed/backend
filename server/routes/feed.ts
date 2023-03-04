@@ -18,6 +18,20 @@ type FeedPayload = {
 	key: string;
 }
 
+server.get('/feed/list', async () => {
+	const feeds = await prisma.producer.findMany({
+		select: {
+			id: true,
+			name: true,
+		},
+	});
+
+	return {
+		success: true,
+		data: feeds,
+	};
+});
+
 server.post('/feed/subscribe', { schema }, async (request, response) => {
 	const body = request.body as FeedPayload;
 
