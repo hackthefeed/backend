@@ -103,10 +103,13 @@ const meMissingSchema = {
 					enum: [true],
 				},
 				data: {
-					type: 'object',
-					properties: {
-						id: { type: 'number' },
-						name: { type: 'string' },
+					type: 'array',
+					items: {
+						type: 'object',
+						properties: {
+							id: { type: 'number' },
+							name: { type: 'string' },
+						},
 					},
 				},
 			},
