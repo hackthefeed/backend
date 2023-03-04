@@ -51,6 +51,7 @@ async function main() {
 	await import('./routes/login');
 	await import('./routes/feed');
 	await import('./routes/auth');
+	await import('./routes/me');
 	const { process } = await import('./routes/websocket');
 
 	httpServer.listen(8082);
