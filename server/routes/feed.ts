@@ -1,6 +1,6 @@
 import { prisma } from '$/database';
 
-import { server } from '..';
+import { server } from '../server';
 import { connections } from './websocket';
 
 const schema = {

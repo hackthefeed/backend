@@ -1,5 +1,6 @@
-import { server } from "..";
-import { prisma } from "$/database";
+import { prisma } from '$/database';
+
+import { server } from '../server';
 
 const createNoteSchema = {
 	body: {
@@ -9,7 +10,7 @@ const createNoteSchema = {
 			content: { type: 'string' },
 			key: { type: 'string' },
 		},
-	}
+	},
 };
 
 const deleteNoteSchema = {
@@ -20,7 +21,7 @@ const deleteNoteSchema = {
 			noteId: { type: 'number' },
 			key: { type: 'string' },
 		},
-	}
+	},
 };
 
 type CreateNoteSchema = {
@@ -64,7 +65,7 @@ server.post('/post/note', { schema: createNoteSchema }, async (request, response
 					connect: {
 						id: postId,
 					},
-				}
+				},
 			},
 		});
 

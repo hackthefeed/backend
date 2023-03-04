@@ -42,28 +42,32 @@ export async function* updateFeed(feed: Producer) {
 
 	if (!response) return;
 
-	const xml = parse(response.data);
-	const items: FeedItem[] = xml.rss.channel.item;
+	try {
+		const xml = parse(response.data);
+		const items: FeedItem[] = xml.rss.channel.item;
 
-	for (const item of items) {
-		const post = await prisma.post.create({
-			data: {
-				id: item.guid,
-				title: item.title,
-				content: item.description,
-				createdAt: new Date(item.pubDate),
-				producer: {
-					connect: {
-						id: feed.id,
+		for (const item of items) {
+			const post = await prisma.post.create({
+				data: {
+					id: item.guid,
+					title: item.title,
+					content: item.description,
+					createdAt: new Date(item.pubDate),
+					producer: {
+						connect: {
+							id: feed.id,
+						},
 					},
 				},
-			},
-		}).catch(() => null);
+			}).catch(() => null);
 
-		// if it exists, we've already sent the update
-		if (post === null) continue;
+			// if it exists, we've already sent the update
+			if (post === null) continue;
 
-		yield post;
+			yield post;
+		}
+	} catch (err) {
+		console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err);
 	}
 }
 
