@@ -5,6 +5,7 @@ on:
     paths:
       - "**.ts"
       - "**.yml"
+      - "package.json"
 
 jobs:
   eslint:
