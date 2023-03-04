@@ -20,7 +20,28 @@ type LoginSchema = {
 
 server.post('/login', { schema: loginSchema }, async (request, response) => {
 	const payload = request.body as LoginSchema;
-	const hash = createPasswordHash(payload.password);
+	const userWithSalt = await prisma.user.findFirst({
+		where: {
+			OR: [
+				{
+					username: payload.username,
+				},
+				{
+					email: payload.username,
+				},
+			],
+		},
+		select: {
+			email: true,
+		},
+	});
+
+	if (userWithSalt === null) return response.status(401).send({
+		success: false,
+		message: 'Invalid username or password.',
+	});
+
+	const hash = createPasswordHash(payload.password, userWithSalt.email);
 
 	const user = await prisma.user.findFirst({
 		where: {

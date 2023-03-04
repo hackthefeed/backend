@@ -1,5 +1,5 @@
-import { createHash } from 'node:crypto';
+import { createHmac } from 'node:crypto';
 
-export function createPasswordHash(password: string) {
-	return createHash('sha512').update(password).digest('hex').toString();
+export function createPasswordHash(password: string, salt: string) {
+	return createHmac('sha512', salt).update(password).digest('hex').toString();
 }

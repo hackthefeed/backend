@@ -35,7 +35,7 @@ server.post('/register', { schema: registerSchema }, async (request, response) =
 		success: false,
 	});
 
-	const hash = createPasswordHash(payload.password);
+	const hash = createPasswordHash(payload.password, payload.email.toLowerCase());
 
 	try {
 		const user = await prisma.user.create({
