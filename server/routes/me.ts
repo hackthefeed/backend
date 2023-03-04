@@ -12,9 +12,13 @@ const meSchema = {
 	},
 	response: {
 		200: {
+			description: 'Successful response',
 			type: 'object',
 			properties: {
-				success: true,
+				success: {
+					type: 'boolean',
+					enum: [true],
+				},
 				data: {
 					type: 'object',
 					properties: {
@@ -29,9 +33,13 @@ const meSchema = {
 			},
 		},
 		401: {
+			description: 'Authentication error',
 			type: 'object',
 			properties: {
-				success: false,
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
 				message: { type: 'string' },
 			},
 		},

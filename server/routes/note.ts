@@ -14,16 +14,24 @@ const createNoteSchema = {
 	},
 	response: {
 		200: {
+			description: 'Successful response',
 			type: 'object',
 			properties: {
-				success: true,
+				success: {
+					type: 'boolean',
+					enum: [true],
+				},
 				message: { type: 'string' },
 			},
 		},
 		401: {
+			description: 'Authentication error',
 			type: 'object',
 			properties: {
-				success: false,
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
 				message: { type: 'string' },
 			},
 		},
@@ -43,23 +51,35 @@ const deleteNoteSchema = {
 	},
 	response: {
 		200: {
+			description: 'Successful response',
 			type: 'object',
 			properties: {
-				success: true,
+				success: {
+					type: 'boolean',
+					enum: [true],
+				},
 				message: { type: 'string' },
 			},
 		},
 		401: {
+			description: 'Authentication error',
 			type: 'object',
 			properties: {
-				success: false,
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
 				message: { type: 'string' },
 			},
 		},
 		400: {
+			description: 'Unknown noteId or postId',
 			type: 'object',
 			properties: {
-				success: false,
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
 				message: { type: 'string' },
 			},
 		},

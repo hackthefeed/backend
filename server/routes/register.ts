@@ -15,9 +15,13 @@ const registerSchema = {
 	},
 	response: {
 		201: {
+			description: 'Successful response',
 			type: 'object',
 			properties: {
-				success: true,
+				success: {
+					type: 'boolean',
+					enum: [true],
+				},
 				user: {
 					type: 'object',
 					properties: {
@@ -27,9 +31,13 @@ const registerSchema = {
 			},
 		},
 		400: {
+			description: 'Email or username already taken',
 			type: 'object',
 			properties: {
-				success: false,
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
 				message: { type: 'string' },
 			},
 		},

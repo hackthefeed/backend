@@ -16,12 +16,17 @@ const microsoftAuthSchema = {
 	},
 	response: {
 		200: {
+			type: 'object',
 			description: 'Successful response, redirects to home page',
 		},
 		403: {
 			type: 'object',
+			description: 'Authentication error',
 			properties: {
-				success: false,
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
 				message: { type: 'string' },
 			},
 		},
