@@ -34,7 +34,7 @@ export function getAllFeeds() {
 	return feeds;
 }
 
-export async function updateFeed(feed: Producer, callback: (post: Post) => void) {
+export async function* updateFeed(feed: Producer) {
 	const response = await axios.get(feed.feedUrl).catch(err => {
 		console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err);
 	});
@@ -62,11 +62,11 @@ export async function updateFeed(feed: Producer, callback: (post: Post) => void)
 		// if it exists, we've already sent the update
 		if (post === null) continue;
 
-		callback(post);
+		yield post;
 	}
 }
 
-export async function generateFeed(delayMs: number = 300_000, callback: (post: Post) => void) {
+export async function *generateFeed(delayMs: number = 300_000) {
 	const feeds = await getAllFeeds();
 	let lastUpdate = Date.now();
 
@@ -74,7 +74,7 @@ export async function generateFeed(delayMs: number = 300_000, callback: (post: P
 		for (const feed of feeds) {
 			console.log(`Updating feed "${feed.name}" (${feed.feedUrl})...`);
 
-			await updateFeed(feed, callback);
+			yield* updateFeed(feed);
 		}
 
 		const now = Date.now();
