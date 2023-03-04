@@ -23,7 +23,7 @@ const feedSubscribeSchema = {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid authentication key.',
+				message: { type: 'string' },
 			},
 		},
 	},
@@ -50,7 +50,7 @@ const feedUnsubscribeSchema = {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid authentication key.',
+				message: { type: 'string' },
 			},
 		},
 	},

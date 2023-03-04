@@ -30,7 +30,7 @@ const registerSchema = {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid email.',
+				message: { type: 'string' },
 			},
 		},
 	},

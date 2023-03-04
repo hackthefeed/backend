@@ -32,7 +32,7 @@ const meSchema = {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid authentication key.',
+				message: { type: 'string' },
 			},
 		},
 	},

@@ -24,7 +24,7 @@ const loginSchema = {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid username or password.',
+				message: { type: 'string' },
 			},
 		},
 	},

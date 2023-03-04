@@ -17,14 +17,14 @@ const createNoteSchema = {
 			type: 'object',
 			properties: {
 				success: true,
-				message: 'Note created successfully.',
+				message: { type: 'string' },
 			},
 		},
 		401: {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid authentication key.',
+				message: { type: 'string' },
 			},
 		},
 	},
@@ -46,21 +46,21 @@ const deleteNoteSchema = {
 			type: 'object',
 			properties: {
 				success: true,
-				message: 'Note deleted successfully.',
+				message: { type: 'string' },
 			},
 		},
 		401: {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Invalid authentication key.',
+				message: { type: 'string' },
 			},
 		},
 		400: {
 			type: 'object',
 			properties: {
 				success: false,
-				message: 'Unknown noteId or postId.',
+				message: { type: 'string' },
 			},
 		},
 	},
