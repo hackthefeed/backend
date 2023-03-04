@@ -1,7 +1,6 @@
 import { prisma } from '$/database';
-
-import { server } from '../server';
-import { createPasswordHash } from '../util';
+import { server } from '$/server/server';
+import { createPasswordHash } from '$/server/util';
 
 const registerSchema = {
 	body: {

@@ -1,9 +1,9 @@
 import { Producer } from '@prisma/client';
 import axios from 'axios';
 
-import { prisma } from '../database';
-import { parse } from './parse';
-import { sleep } from './util';
+import { prisma } from '$/database';
+import { parse } from '$/rss/parse';
+import { sleep } from '$/rss/util';
 
 export type FeedItem = {
 	title: string;

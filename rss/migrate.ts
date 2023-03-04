@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-import { prisma } from '../database';
+import { prisma } from '$/database';
 
 type RawFeed = {
 	name: string;

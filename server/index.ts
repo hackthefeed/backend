@@ -5,7 +5,7 @@ import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 
-import { httpServer, server } from './server';
+import { httpServer, server } from '$/server/server';
 
 async function main() {
 	server.get('/', async () => {

@@ -2,8 +2,7 @@ import type { Socket } from 'socket.io';
 
 import { prisma } from '$/database';
 import { generateFeed } from '$/rss';
-
-import { io } from '../server';
+import { io } from '$/server/server';
 
 export const connections = new Map<number, Socket>();
 // fetch updates every 5 minutes

@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 import { prisma } from '$/database';
-
-import { server } from '../server';
+import { server } from '$/server/server';
 
 // Microsoft authentication endpoint
 

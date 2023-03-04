@@ -17,7 +17,8 @@
 	},
 	"scripts": {
 		"build": "npx prisma generate && npx tsc --project tsconfig.json && npx tsc-alias -p tsconfig.json",
-		"eslint": "npx eslint --ext .ts ."
+		"eslint": "npx eslint --ext .ts .",
+		"test": "npx mocha -r ts-node/register -r tsconfig-paths/register test/**/*.test.ts"
 	},
 	"repository": {
 		"type": "git",
