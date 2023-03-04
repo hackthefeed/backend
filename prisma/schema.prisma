@@ -18,17 +18,35 @@ model Producer {
 
   posts       Post[]
   subscribers User[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Post {
-  id        String   @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String
-  content   String
+  id      String @id
+  title   String
+  content String
 
   producer   Producer @relation(fields: [producerId], references: [id])
   producerId Int
+  notes      Note[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Note {
+  id      Int    @id @default(autoincrement())
+  content String // encrypted
+
+  post         Post   @relation(fields: [postId], references: [id])
+  postId       String
+  subscriber   User   @relation(fields: [subscriberId], references: [id])
+  subscriberId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model User {
@@ -38,4 +56,8 @@ model User {
   password String // SHA-512 hash
 
   subscriptions Producer[]
+  Note          Note[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
