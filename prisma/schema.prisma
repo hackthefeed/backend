@@ -54,9 +54,10 @@ model User {
   email    String @unique
   username String @unique
   password String // SHA-512 hash
+  key      String @default(uuid()) @db.Uuid
 
   subscriptions Producer[]
-  Note          Note[]
+  notes         Note[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
