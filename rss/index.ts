@@ -22,8 +22,25 @@ export function getActiveFeeds(connected: number[]) {
 	return feeds;
 }
 
+export function getAllFeeds() {
+	const feeds = prisma.producer.findMany();
+
+	return feeds;
+}
+
 export async function updateFeed(feed: Producer) {
 	const data = await axios.get(feed.feedUrl);
 
 	console.log(data);
+	process.exit();
 }
+
+async function main() {
+	const feeds = await getAllFeeds();
+
+	for (const feed of feeds) {
+		await updateFeed(feed);
+	}
+}
+
+main();

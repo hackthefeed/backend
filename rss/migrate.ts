@@ -7,7 +7,7 @@ type RawFeed = {
 }
 
 async function main() {
-	const feed: RawFeed[] = JSON.parse(await fs.readFile('./feeds.json', 'utf8'));
+	const feed: RawFeed[] = JSON.parse(await fs.readFile('./data/feeds.json', 'utf8'));
 
 	const response = await prisma.producer.createMany({
 		skipDuplicates: true,
