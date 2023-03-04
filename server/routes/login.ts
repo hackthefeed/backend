@@ -3,6 +3,8 @@ import { server } from '$/server/server';
 import { createPasswordHash } from '$/server/util';
 
 const loginSchema = {
+	description: 'Logs in to the specified account',
+	tags: ['auth'],
 	body: {
 		type: 'object',
 		properties: {

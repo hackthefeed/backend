@@ -2,6 +2,8 @@ import { prisma } from '$/database';
 import { server } from '$/server/server';
 
 const meSchema = {
+	description: 'Gets the user associated with the key',
+	tags: ['auth'],
 	querystring: {
 		type: 'object',
 		properties: {

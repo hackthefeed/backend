@@ -3,6 +3,8 @@ import { server } from '$/server/server';
 import { createPasswordHash } from '$/server/util';
 
 const registerSchema = {
+	description: 'Registers a new account',
+	tags: ['auth'],
 	body: {
 		type: 'object',
 		properties: {

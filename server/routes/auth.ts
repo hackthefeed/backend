@@ -6,6 +6,8 @@ import { server } from '$/server/server';
 // Microsoft authentication endpoint
 
 const microsoftAuthSchema = {
+	description: 'Authentication endpoint for Microsoft accounts',
+	tags: ['auth'],
 	querystring: {
 		type: 'object',
 		properties: {
@@ -72,5 +74,3 @@ server.get('/auth/microsoft', { schema: microsoftAuthSchema }, async (request, r
 		});
 	}
 });
-
-// https://login.live.com/oauth20_authorize.srf?client_id=11b61ecc-d611-4cc6-bed4-6d4940b5c1ea&response_type=code&scope=openid,email

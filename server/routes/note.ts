@@ -2,6 +2,8 @@ import { prisma } from '$/database';
 import { server } from '$/server/server';
 
 const createNoteSchema = {
+	description: 'Creates a note on a post',
+	tags: ['note'],
 	body: {
 		type: 'object',
 		properties: {
@@ -13,6 +15,8 @@ const createNoteSchema = {
 };
 
 const deleteNoteSchema = {
+	description: 'Deletes a note on from post',
+	tags: ['note'],
 	body: {
 		type: 'object',
 		properties: {

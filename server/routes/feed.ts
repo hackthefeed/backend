@@ -2,7 +2,21 @@ import { prisma } from '$/database';
 import { connections } from '$/server/routes/websocket';
 import { server } from '$/server/server';
 
-const schema = {
+const feedSubscribeSchema = {
+	description: 'Subscribes to a feed',
+	tags: ['feed'],
+	body: {
+		type: 'object',
+		properties: {
+			producerId: { type: 'number' },
+			key: { type: 'string' },
+		},
+	},
+};
+
+const feedUnsubscribeSchema = {
+	description: 'Subscribes from a feed',
+	tags: ['feed'],
 	body: {
 		type: 'object',
 		properties: {
@@ -17,7 +31,12 @@ type FeedPayload = {
 	key: string;
 }
 
-server.get('/feed/list', async () => {
+server.get('/feed/list', {
+	schema: {
+		description: 'Lists all feeds',
+		tags: ['feed'],
+	},
+}, async () => {
 	const feeds = await prisma.producer.findMany({
 		select: {
 			id: true,
@@ -31,7 +50,7 @@ server.get('/feed/list', async () => {
 	};
 });
 
-server.post('/feed/subscribe', { schema }, async (request, response) => {
+server.post('/feed/subscribe', { schema: feedSubscribeSchema }, async (request, response) => {
 	const body = request.body as FeedPayload;
 
 	// check if a user with the key exists
@@ -69,7 +88,7 @@ server.post('/feed/subscribe', { schema }, async (request, response) => {
 	};
 });
 
-server.post('/feed/unsubscribe', { schema }, async (request, response) => {
+server.post('/feed/unsubscribe', { schema: feedUnsubscribeSchema }, async (request, response) => {
 	const body = request.body as FeedPayload;
 
 	const user = await prisma.user.findUnique({
