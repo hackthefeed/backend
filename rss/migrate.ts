@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+
 import { prisma } from '../database';
 
 type RawFeed = {
@@ -15,7 +16,7 @@ async function main() {
 			name: f.name,
 			feedUrl: f.url,
 			website: f.url,
-		}))
+		})),
 	});
 
 	console.log(`Created ${response.count} feeds.`);

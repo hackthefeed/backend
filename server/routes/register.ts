@@ -1,6 +1,7 @@
-import { server } from "..";
-import { prisma } from "$/database";
-import { createPasswordHash } from "../util";
+import { prisma } from '$/database';
+
+import { server } from '..';
+import { createPasswordHash } from '../util';
 
 const registerSchema = {
 	body: {
@@ -9,8 +10,8 @@ const registerSchema = {
 			username: { type: 'string' },
 			email: { type: 'string' },
 			password: { type: 'string' },
-		}
-	}
+		},
+	},
 };
 
 type RegisterSchema = {
@@ -45,7 +46,7 @@ server.post('/register', { schema: registerSchema }, async (request, response) =
 			},
 			select: {
 				key: true,
-			}
+			},
 		});
 
 		return response.status(201).send({
@@ -56,7 +57,7 @@ server.post('/register', { schema: registerSchema }, async (request, response) =
 	} catch {
 		return response.status(400).send({
 			message: 'Email or username is already in use.',
-			success: false
+			success: false,
 		});
 	}
 });

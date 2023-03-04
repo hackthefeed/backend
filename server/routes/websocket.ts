@@ -1,7 +1,9 @@
-import { io } from '..';
-import { prisma } from '$/database';
 import type { Socket } from 'socket.io';
+
+import { prisma } from '$/database';
 import { generateFeed } from '$/rss';
+
+import { io } from '..';
 
 export const connections = new Map<number, Socket>();
 // fetch updates every 5 minutes
@@ -14,16 +16,16 @@ io.on('connection', async socket => {
 	// Check if key is valid
 	const user = await prisma.user.findUnique({
 		where: {
-			key
+			key,
 		},
 		select: {
 			id: true,
 			subscriptions: {
 				select: {
 					id: true,
-				}
-			}
-		}
+				},
+			},
+		},
 	});
 
 	if (!user) return socket.disconnect(true);

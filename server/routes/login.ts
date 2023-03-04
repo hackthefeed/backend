@@ -1,6 +1,7 @@
-import { server } from "..";
-import { prisma } from "$/database";
-import { createPasswordHash } from "../util";
+import { prisma } from '$/database';
+
+import { server } from '..';
+import { createPasswordHash } from '../util';
 
 const loginSchema = {
 	body: {
@@ -8,8 +9,8 @@ const loginSchema = {
 		properties: {
 			username: { type: 'string' },
 			password: { type: 'string' },
-		}
-	}
+		},
+	},
 };
 
 type LoginSchema = {
@@ -29,13 +30,13 @@ server.post('/login', { schema: loginSchema }, async (request, response) => {
 				},
 				{
 					email: payload.username,
-				}
+				},
 			],
 			password: hash,
 		},
 		select: {
 			key: true,
-		}
+		},
 	});
 
 	if (user === null) return response.status(401).send({

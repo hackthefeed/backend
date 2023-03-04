@@ -1,5 +1,6 @@
+import { Producer } from '@prisma/client';
 import axios from 'axios';
-import { Post, Producer } from '@prisma/client';
+
 import { prisma } from '../database';
 import { parse } from './parse';
 import { sleep } from './util';
@@ -18,11 +19,11 @@ export function getActiveFeeds(connected: number[]) {
 			subscribers: {
 				some: {
 					id: {
-						in: connected
-					}
-				}
-			}
-		}
+						in: connected,
+					},
+				},
+			},
+		},
 	});
 
 	return feeds;
@@ -53,10 +54,10 @@ export async function* updateFeed(feed: Producer) {
 				createdAt: new Date(item.pubDate),
 				producer: {
 					connect: {
-						id: feed.id
-					}
-				}
-			}
+						id: feed.id,
+					},
+				},
+			},
 		}).catch(() => null);
 
 		// if it exists, we've already sent the update
@@ -66,9 +67,9 @@ export async function* updateFeed(feed: Producer) {
 	}
 }
 
-export async function *generateFeed(delayMs: number = 300_000) {
+export async function *generateFeed(delayMs = 300_000) {
 	const feeds = await getAllFeeds();
-	let lastUpdate = Date.now();
+	const lastUpdate = Date.now();
 
 	for (;;) {
 		for (const feed of feeds) {

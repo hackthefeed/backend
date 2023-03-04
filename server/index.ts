@@ -1,14 +1,15 @@
-import fastify from 'fastify';
-import cors from '@fastify/cors'
-import { createServer } from 'node:http';
-import { Server } from 'socket.io';
-
-import { process } from './routes/websocket';
-
 // import routes so they register routes
 import './routes/register';
 import './routes/login';
 import './routes/feed';
+
+import { createServer } from 'node:http';
+
+import cors from '@fastify/cors';
+import fastify from 'fastify';
+import { Server } from 'socket.io';
+
+import { process } from './routes/websocket';
 
 const httpServer = createServer();
 
@@ -19,10 +20,6 @@ export const io = new Server(httpServer, {
 });
 
 export const server = fastify();
-
-server.get('/', async (request, response) => {
-	return 'yo hello hi';
-});
 
 async function main() {
 	await server.register(cors, {
