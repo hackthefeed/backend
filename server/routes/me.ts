@@ -68,7 +68,7 @@ const mePostsSchema = {
 					items: {
 						type: 'object',
 						properties: {
-							id: { type: 'number' },
+							id: { type: 'string' },
 							title: { type: 'string' },
 							content: { type: 'string' },
 							createdAt: { type: 'string' },
