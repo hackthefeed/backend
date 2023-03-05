@@ -16,7 +16,7 @@ async function main() {
 	});
 
 	await server.register(cors, {
-		origin: '*',
+		origin: true,
 	});
 
 	await server.register(swagger, {
