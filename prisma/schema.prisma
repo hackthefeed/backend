@@ -24,10 +24,11 @@ model Producer {
 }
 
 model Post {
-  id      String @id
-  title   String
-  content String
-  url     String
+  id        String  @id
+  title     String
+  content   String
+  url       String
+  thumbnail String?
 
   producer   Producer @relation(fields: [producerId], references: [id])
   producerId Int

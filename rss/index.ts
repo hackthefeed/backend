@@ -11,6 +11,10 @@ export type FeedItem = {
 	link: string;
 	pubDate: string;
 	guid: string;
+	'content:encoded'?: string;
+	'media:thumbnail'?: {
+		'@_url'?: string;
+	}
 }
 
 export function getActiveFeeds(connected: number[]) {
@@ -51,9 +55,10 @@ export async function* updateFeed(feed: Producer) {
 				data: {
 					id: item.guid,
 					title: item.title,
-					content: item.description,
+					content: item['content:encoded'] ?? item.description,
 					createdAt: new Date(item.pubDate),
 					url: item.link,
+					thumbnail: item?.['media:thumbnail']?.['@_url'],
 					producer: {
 						connect: {
 							id: feed.id,

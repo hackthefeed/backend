@@ -89,8 +89,8 @@ const mePostsSchema = {
 	},
 };
 
-const meMissingSchema = {
-	description: 'Gets the subscriptions the user has not subscribed to yet',
+const meSubscriptionsSchema = {
+	description: 'Gets all producers and shows if the user is subscribed to them',
 	querystring: {
 		type: 'object',
 		properties: {
@@ -113,6 +113,7 @@ const meMissingSchema = {
 						properties: {
 							id: { type: 'number' },
 							name: { type: 'string' },
+							subscribed: { type: 'boolean' },
 						},
 					},
 				},
@@ -194,6 +195,14 @@ server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => 
 				},
 			},
 		},
+		orderBy: [
+			{
+				createdAt: 'desc',
+			},
+			{
+				id: 'desc',
+			},
+		],
 	});
 
 	return {
@@ -202,7 +211,7 @@ server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => 
 	};
 });
 
-server.get('/me/missing_subscriptions', { schema: meMissingSchema }, async (request, response) => {
+server.get('/me/subscriptions', { schema: meSubscriptionsSchema }, async (request, response) => {
 	const query = request.query as MeSchema;
 
 	const user = await prisma.user.findUnique({
@@ -230,11 +239,28 @@ server.get('/me/missing_subscriptions', { schema: meMissingSchema }, async (requ
 		select: {
 			id: true,
 			name: true,
+			subscribers: {
+				where: {
+					key: query.key,
+				},
+			},
 		},
+		orderBy: [
+			{
+				name: 'asc',
+			},
+			{
+				id: 'asc',
+			},
+		],
 	});
 
 	return {
 		success: true,
-		data: producers,
+		data: producers.map(p => ({
+			id: p.id,
+			name: p.name,
+			subscribed: p.subscribers.length > 0,
+		})),
 	};
 });
