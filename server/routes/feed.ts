@@ -9,7 +9,7 @@ const feedSubscribeSchema = {
 		type: 'object',
 		properties: {
 			producerId: { type: 'number' },
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {
@@ -44,7 +44,7 @@ const feedUnsubscribeSchema = {
 		type: 'object',
 		properties: {
 			producerId: { type: 'number' },
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {

@@ -9,7 +9,7 @@ const createNoteSchema = {
 		properties: {
 			postId: { type: 'string' },
 			content: { type: 'string' },
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {
@@ -22,6 +22,7 @@ const createNoteSchema = {
 					enum: [true],
 				},
 				message: { type: 'string' },
+				data: { type: 'number' },
 			},
 		},
 		401: {
@@ -46,7 +47,7 @@ const deleteNoteSchema = {
 		properties: {
 			postId: { type: 'string' },
 			noteId: { type: 'number' },
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {
@@ -115,7 +116,7 @@ server.post('/post/note', { schema: createNoteSchema }, async (request, response
 	});
 
 	try {
-		await prisma.note.create({
+		const note = await prisma.note.create({
 			data: {
 				content,
 				author: {
@@ -129,11 +130,15 @@ server.post('/post/note', { schema: createNoteSchema }, async (request, response
 					},
 				},
 			},
+			select: {
+				id: true,
+			},
 		});
 
 		return {
 			success: true,
 			message: 'Note created successfully.',
+			data: note.id,
 		};
 	} catch {
 		return response.status(400).send({

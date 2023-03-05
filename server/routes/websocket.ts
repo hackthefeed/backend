@@ -10,6 +10,8 @@ export const feed = generateFeed(300_000);
 
 io.on('connection', async socket => {
 	const key = socket.handshake.query.key;
+	console.log('connecting with key', key);
+
 	if (typeof key !== 'string') return socket.disconnect(true);
 
 	// Check if key is valid

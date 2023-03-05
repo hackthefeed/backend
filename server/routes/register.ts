@@ -25,7 +25,7 @@ const registerSchema = {
 				user: {
 					type: 'object',
 					properties: {
-						key: { type: 'string' },
+						key: { type: 'string', format: 'uuid' },
 					},
 				},
 			},

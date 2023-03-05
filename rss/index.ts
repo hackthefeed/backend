@@ -10,7 +10,9 @@ export type FeedItem = {
 	description: string;
 	link: string;
 	pubDate: string;
-	guid: string;
+	guid: string | {
+		'#text': string;
+	};
 	'content:encoded'?: string;
 	'media:thumbnail'?: {
 		'@_url'?: string;
@@ -53,9 +55,9 @@ export async function* updateFeed(feed: Producer) {
 		for (const item of items) {
 			const post = await prisma.post.create({
 				data: {
-					id: item.guid,
+					id: typeof item.guid === 'string' ? item.guid : item.guid['#text'],
 					title: item.title,
-					content: item['content:encoded'] ?? item.description,
+					content: item.description ?? item['content:encoded'],
 					createdAt: new Date(item.pubDate),
 					url: item.link,
 					thumbnail: item?.['media:thumbnail']?.['@_url'],
@@ -83,7 +85,7 @@ export async function *generateFeed(delayMs = 300_000) {
 
 	for (;;) {
 		for (const feed of feeds) {
-			console.log(`Updating feed "${feed.name}" (${feed.feedUrl})...`);
+			// console.log(`Updating feed "${feed.name}" (${feed.feedUrl})...`);
 
 			yield* updateFeed(feed);
 		}

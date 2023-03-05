@@ -7,7 +7,7 @@ const meSchema = {
 	querystring: {
 		type: 'object',
 		properties: {
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {
@@ -28,6 +28,13 @@ const meSchema = {
 						email: { type: 'string' },
 						createdAt: { type: 'string' },
 						updatedAt: { type: 'string' },
+						producer: {
+							type: 'object',
+							properties: {
+								id: { type: 'number' },
+								name: { type: 'string' },
+							},
+						},
 					},
 				},
 			},
@@ -51,7 +58,7 @@ const mePostsSchema = {
 	querystring: {
 		type: 'object',
 		properties: {
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {
@@ -75,6 +82,16 @@ const mePostsSchema = {
 							updatedAt: { type: 'string' },
 							url: { type: 'string' },
 							thumbnail: { type: 'string' },
+							notes: {
+								type: 'array',
+								items: {
+									type: 'object',
+									properties: {
+										content: { type: 'string' },
+										id: { type: 'number' },
+									},
+								},
+							},
 							producer: {
 								type: 'object',
 								properties: {
@@ -95,7 +112,7 @@ const meSubscriptionsSchema = {
 	querystring: {
 		type: 'object',
 		properties: {
-			key: { type: 'string' },
+			key: { type: 'string', format: 'uuid' },
 		},
 	},
 	response: {
@@ -194,6 +211,20 @@ server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => 
 				select: {
 					id: true,
 					name: true,
+				},
+			},
+			notes: {
+				where: {
+					author: {
+						key: query.key,
+					},
+				},
+				select: {
+					content: true,
+					id: true,
+				},
+				orderBy: {
+					updatedAt: 'desc',
 				},
 			},
 		},

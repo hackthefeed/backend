@@ -21,7 +21,7 @@ const loginSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				key: { type: 'string' },
+				key: { type: 'string', format: 'uuid' },
 			},
 		},
 		401: {
