@@ -24,10 +24,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/matteopolak/cybersec-backend/settings/access?guidance_task="
+		"url": "https://github.com/hackthefeed/backend.git"
 	},
 	"author": "",
-	"license": "ISC",
+	"license": "MIT",
 	"dependencies": {
 		"@fastify/cors": "^8.2.0",
 		"@fastify/swagger": "^8.3.1",
