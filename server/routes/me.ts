@@ -73,6 +73,7 @@ const mePostsSchema = {
 							content: { type: 'string' },
 							createdAt: { type: 'string' },
 							updatedAt: { type: 'string' },
+							url: { type: 'string' },
 							producer: {
 								type: 'object',
 								properties: {
@@ -185,6 +186,7 @@ server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => 
 			content: true,
 			createdAt: true,
 			updatedAt: true,
+			url: true,
 			producer: {
 				select: {
 					id: true,

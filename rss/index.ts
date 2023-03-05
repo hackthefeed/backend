@@ -53,6 +53,7 @@ export async function* updateFeed(feed: Producer) {
 					title: item.title,
 					content: item.description,
 					createdAt: new Date(item.pubDate),
+					url: item.link,
 					producer: {
 						connect: {
 							id: feed.id,
