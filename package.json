@@ -1,5 +1,5 @@
 {
-	"name": "cybersec-backend",
+	"name": "@hackthefeed/backend",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
