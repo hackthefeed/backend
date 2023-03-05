@@ -231,19 +231,15 @@ server.get('/me/subscriptions', { schema: meSubscriptionsSchema }, async (reques
 	});
 
 	const producers = await prisma.producer.findMany({
-		where: {
-			subscribers: {
-				none: {
-					key: query.key,
-				},
-			},
-		},
 		select: {
 			id: true,
 			name: true,
 			subscribers: {
 				where: {
 					key: query.key,
+				},
+				select: {
+					id: true,
 				},
 			},
 		},
