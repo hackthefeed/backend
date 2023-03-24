@@ -1,9 +1,10 @@
 import { Producer } from '@prisma/client';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 import { prisma } from '$/database';
 import { parse } from '$/rss/parse';
 import { sleep } from '$/rss/util';
+import type { ExternalPost } from '$/server/routes/websocket';
 
 export type FeedItem = {
 	title: string;
@@ -41,7 +42,7 @@ export function getAllFeeds() {
 	return feeds;
 }
 
-export async function* updateFeed(feed: Producer) {
+export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, void, unknown> {
 	const response = await axios.get(feed.feedUrl).catch(err => {
 		console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err);
 	});
@@ -67,23 +68,46 @@ export async function* updateFeed(feed: Producer) {
 						},
 					},
 				},
-			}).catch(() => null);
+				select: {
+					id: true,
+					title: true,
+					content: true,
+					createdAt: true,
+					updatedAt: true,
+					url: true,
+					thumbnail: true,
+					producer: {
+						select: {
+							id: true,
+							name: true,
+						},
+					},
+				},
+			}).catch(() => null) as ExternalPost | null;
 
 			// if it exists, we've already sent the update
 			if (post === null) continue;
 
+			// Overwrite the notes to be empty since they will not exist
+			// on new entries
+			post.notes = [];
+
 			yield post;
 		}
 	} catch (err) {
-		console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err);
+		if (err instanceof AxiosError) {
+			console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err.message);
+		} else {
+			console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl})`);
+		}
 	}
 }
 
-export async function *generateFeed(delayMs = 300_000) {
+export async function* generateFeed(delayMs = 300_000) {
 	const feeds = await getAllFeeds();
 	const lastUpdate = Date.now();
 
-	for (;;) {
+	for (; ;) {
 		for (const feed of feeds) {
 			// console.log(`Updating feed "${feed.name}" (${feed.feedUrl})...`);
 

@@ -8,6 +8,24 @@ export const connections = new Map<number, Socket>();
 // fetch updates every 5 minutes
 export const feed = generateFeed(300_000);
 
+export type ExternalPost = {
+	id: string;
+	createdAt: Date;
+	updatedAt: Date;
+	title: string;
+	content: string;
+	url: string;
+	thumbnail: string | null;
+	producer: {
+		id: number;
+		name: string;
+	};
+	notes: {
+		id: number;
+		content: string;
+	}[];
+};
+
 io.on('connection', async socket => {
 	const key = socket.handshake.query.key;
 	console.log('connecting with key', key);
@@ -50,6 +68,6 @@ io.on('connection', async socket => {
 
 export async function process() {
 	for await (const post of feed) {
-		io.to(post.producerId.toString()).emit('postCreated', post);
+		io.to(post.producer.id.toString()).emit('postCreated', post);
 	}
 }
