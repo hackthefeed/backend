@@ -59,6 +59,7 @@ const mePostsSchema = {
 		type: 'object',
 		properties: {
 			key: { type: 'string', format: 'uuid' },
+			page: { type: 'integer', minimum: 1 },
 		},
 	},
 	response: {
@@ -142,6 +143,7 @@ const meSubscriptionsSchema = {
 
 type MeSchema = {
 	key: string;
+	page: number;
 }
 
 server.get('/me', { schema: meSchema }, async (request, response) => {
@@ -199,6 +201,8 @@ server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => 
 				},
 			},
 		},
+		skip: (query.page - 1) * 50,
+		take: 50,
 		select: {
 			id: true,
 			title: true,
