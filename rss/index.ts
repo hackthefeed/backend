@@ -1,5 +1,6 @@
 import { Producer } from '@prisma/client';
 import axios, { AxiosError } from 'axios';
+import sanitizeHtml from 'sanitize-html';
 
 import { prisma } from '$/database';
 import { parse } from '$/rss/parse';
@@ -57,8 +58,18 @@ export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, 
 			const post = await prisma.post.create({
 				data: {
 					id: typeof item.guid === 'string' ? item.guid : item.guid['#text'],
-					title: item.title,
-					content: item.description ?? item['content:encoded'],
+					title: sanitizeHtml(item.title, {
+						allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
+						allowedAttributes: {
+							'a': ['href'],
+						},
+					}),
+					content: sanitizeHtml(item.description ?? item['content:encoded'], {
+						allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
+						allowedAttributes: {
+							'a': ['href'],
+						},
+					}),
 					createdAt: new Date(item.pubDate),
 					url: item.link,
 					thumbnail: item?.['media:thumbnail']?.['@_url'],
