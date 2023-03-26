@@ -53,6 +53,8 @@ async function main() {
 	await import('./routes/auth');
 	await import('./routes/me');
 	await import('./routes/note');
+	await import('./routes/post');
+
 	const { process } = await import('./routes/websocket');
 
 	httpServer.listen(8082);

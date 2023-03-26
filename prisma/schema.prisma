@@ -10,6 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Comment {
+  id      Int    @id @default(autoincrement())
+  content String
+
+  post     Post   @relation(fields: [postId], references: [id])
+  postId   String
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Producer {
   id      Int    @id @default(autoincrement())
   name    String @unique
@@ -30,9 +43,10 @@ model Post {
   url       String
   thumbnail String?
 
-  producer   Producer @relation(fields: [producerId], references: [id])
+  producer   Producer  @relation(fields: [producerId], references: [id])
   producerId Int
   notes      Note[]
+  comments   Comment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -67,6 +81,7 @@ model User {
   subscriptions Producer[]
   notes         Note[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Comment   Comment[]
 }

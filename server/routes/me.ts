@@ -53,8 +53,8 @@ const meSchema = {
 	},
 };
 
-const mePostsSchema = {
-	description: 'Gets the user\'s posts feed',
+const meFeedSchema = {
+	description: 'Gets the user\'s feed',
 	querystring: {
 		type: 'object',
 		properties: {
@@ -98,6 +98,12 @@ const mePostsSchema = {
 								properties: {
 									id: { type: 'number' },
 									name: { type: 'string' },
+								},
+							},
+							_count: {
+								type: 'object',
+								properties: {
+									comments: { type: 'number' },
 								},
 							},
 						},
@@ -174,7 +180,7 @@ server.get('/me', { schema: meSchema }, async (request, response) => {
 	};
 });
 
-server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => {
+server.get('/me/feed', { schema: meFeedSchema }, async (request, response) => {
 	const query = request.query as MeSchema;
 
 	const user = await prisma.user.findUnique({
@@ -229,6 +235,11 @@ server.get('/me/posts', { schema: mePostsSchema }, async (request, response) => 
 				},
 				orderBy: {
 					updatedAt: 'desc',
+				},
+			},
+			_count: {
+				select: {
+					comments: true,
 				},
 			},
 		},
