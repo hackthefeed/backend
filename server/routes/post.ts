@@ -11,6 +11,7 @@ const createPostCommentSchema = {
 			content: { type: 'string' },
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['postId', 'content', 'key'],
 	},
 	response: {
 		200: {
@@ -21,7 +22,20 @@ const createPostCommentSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				data: { type: 'number' },
+				data: {
+					type: 'object',
+					properties: {
+						id: { type: 'number' },
+						content: { type: 'string' },
+						author: {
+							type: 'object',
+							properties: {
+								username: { type: 'string' },
+								displayName: { type: 'string' },
+							},
+						},
+					},
+				},
 			},
 		},
 		401: {
@@ -48,6 +62,7 @@ const deletePostCommentSchema = {
 			commentId: { type: 'number' },
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['postId', 'commentId', 'key'],
 	},
 	response: {
 		200: {
@@ -82,6 +97,7 @@ const getCommentsSchema = {
 		properties: {
 			postId: { type: 'string' },
 		},
+		required: ['postId'],
 	},
 	response: {
 		200: {
@@ -184,12 +200,19 @@ server.post('/post/comment', { schema: createPostCommentSchema }, async (request
 			},
 			select: {
 				id: true,
+				content: true,
+				author: {
+					select: {
+						username: true,
+						displayName: true,
+					},
+				},
 			},
 		});
 
 		return response.status(200).send({
 			success: true,
-			data: comment.id,
+			data: comment,
 		});
 	} catch {
 		return response.status(404).send({

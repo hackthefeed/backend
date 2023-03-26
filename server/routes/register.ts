@@ -12,6 +12,7 @@ const registerSchema = {
 			email: { type: 'string' },
 			password: { type: 'string' },
 		},
+		required: ['username', 'email', 'password'],
 	},
 	response: {
 		201: {

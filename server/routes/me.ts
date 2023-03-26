@@ -9,6 +9,7 @@ const meSchema = {
 		properties: {
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['key'],
 	},
 	response: {
 		200: {
@@ -61,6 +62,7 @@ const meFeedSchema = {
 			key: { type: 'string', format: 'uuid' },
 			page: { type: 'integer', minimum: 1 },
 		},
+		required: ['key', 'page'],
 	},
 	response: {
 		200: {
@@ -121,6 +123,7 @@ const meSubscriptionsSchema = {
 		properties: {
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['key'],
 	},
 	response: {
 		200: {

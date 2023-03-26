@@ -11,6 +11,7 @@ const createNoteSchema = {
 			content: { type: 'string' },
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['postId', 'content', 'key'],
 	},
 	response: {
 		200: {
@@ -49,6 +50,7 @@ const deleteNoteSchema = {
 			noteId: { type: 'number' },
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['postId', 'noteId', 'key'],
 	},
 	response: {
 		200: {

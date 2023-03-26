@@ -11,6 +11,7 @@ const loginSchema = {
 			username: { type: 'string' },
 			password: { type: 'string' },
 		},
+		required: ['username', 'password'],
 	},
 	response: {
 		200: {

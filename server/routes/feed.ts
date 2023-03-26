@@ -11,6 +11,7 @@ const feedSubscribeSchema = {
 			producerId: { type: 'number' },
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['producerId', 'key'],
 	},
 	response: {
 		200: {
@@ -46,6 +47,7 @@ const feedUnsubscribeSchema = {
 			producerId: { type: 'number' },
 			key: { type: 'string', format: 'uuid' },
 		},
+		required: ['producerId', 'key'],
 	},
 	response: {
 		200: {
