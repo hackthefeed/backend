@@ -1,6 +1,6 @@
 // import routes so they register routes
 import 'dotenv/config';
-import '$/routes';
+import '$/server/routes';
 
 import { process } from '$/server/routes/ws';
 import { server } from '$/server/server';

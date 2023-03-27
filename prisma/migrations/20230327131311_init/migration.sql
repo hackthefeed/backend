@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Comment" (
-    "id" SERIAL NOT NULL,
+    "id" UUID NOT NULL,
     "content" TEXT NOT NULL,
     "postId" UUID NOT NULL,
     "authorId" UUID NOT NULL,

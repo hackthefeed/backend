@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"type": "module",
 	"devDependencies": {
 		"@types/mocha": "^10.0.1",
 		"@types/node": "^18.14.6",
