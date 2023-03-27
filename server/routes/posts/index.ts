@@ -2,8 +2,51 @@ import { prisma } from '$/database';
 import { server } from '$/server/server';
 import { AuthHeaders } from '$/server/shared/schema';
 
-import { createNoteSchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema } from './schema';
+import { createNoteSchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema, viewPostSchema } from './schema';
 import { CreateNoteSchemaBody, CreatePostCommnentSchema } from './types';
+
+server.get<{
+	Params: { postId: string };
+}>('/posts/:postId', { schema: viewPostSchema }, async (request, response) => {
+	const post = await prisma.post.findUnique({
+		where: {
+			id: request.params.postId,
+		},
+		select: {
+			id: true,
+			title: true,
+			content: true,
+			url: true,
+			thumbnail: true,
+			updatedAt: true,
+			createdAt: true,
+			comments: {
+				select: {
+					id: true,
+					content: true,
+					author: {
+						select: {
+							username: true,
+							displayName: true,
+						},
+					},
+					createdAt: true,
+					updatedAt: true,
+				},
+			},
+		},
+	});
+
+	if (post === null) return response.status(404).send({
+		message: 'Unknown postId.',
+		success: false,
+	});
+
+	return {
+		success: true,
+		data: post,
+	};
+});
 
 server.post<{
 	Body: CreateNoteSchemaBody;

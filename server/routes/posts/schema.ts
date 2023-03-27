@@ -188,6 +188,82 @@ export const deletePostCommentSchema = {
 	},
 };
 
+export const viewPostSchema = {
+	description: 'Gets a post',
+	tags: ['post'],
+	params: {
+		type: 'object',
+		properties: {
+			postId: { type: 'string', format: 'uuid' },
+		},
+		required: ['postId'],
+	},
+	response: {
+		200: {
+			description: 'Successful response',
+			type: 'object',
+			properties: {
+				success: {
+					type: 'boolean',
+					enum: [true],
+				},
+				data: {
+					type: 'object',
+					properties: {
+						id: { type: 'string', format: 'uuid' },
+						title: { type: 'string' },
+						content: { type: 'string' },
+						url: { type: 'string' },
+						thumbnail: { type: 'string' },
+						updatedAt: { type: 'string', format: 'date-time' },
+						createdAt: { type: 'string', format: 'date-time' },
+						comments: {
+							type: 'array',
+							items: {
+								type: 'object',
+								properties: {
+									id: { type: 'string', format: 'uuid' },
+									content: { type: 'string' },
+									author: {
+										type: 'object',
+										properties: {
+											username: { type: 'string' },
+											displayName: { type: 'string' },
+										},
+										required: [],
+									},
+									createdAt: { type: 'string', format: 'date-time' },
+									updatedAt: { type: 'string', format: 'date-time' },
+								},
+							},
+						},
+					},
+					required: [
+						'id',
+						'title',
+						'content',
+						'url',
+						'updatedAt',
+						'createdAt',
+						'comments',
+					],
+				},
+			},
+		},
+		404: {
+			description: 'Unknown postId',
+			type: 'object',
+			properties: {
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
+				message: { type: 'string' },
+			},
+		},
+	},
+};
+
 export const postCommentsSchema = {
 	description: 'Gets all comments on a post',
 	tags: ['comment'],
