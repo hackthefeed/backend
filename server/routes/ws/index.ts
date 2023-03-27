@@ -2,9 +2,9 @@ import type { Socket } from 'socket.io';
 
 import { prisma } from '$/database';
 import { generateFeed } from '$/rss';
-import { io } from '$/server/server';
+import { server } from '$/server/server';
 
-export const connections = new Map<number, Socket>();
+export const connections = new Map<string, Socket>();
 // fetch updates every 5 minutes
 export const feed = generateFeed(300_000);
 
@@ -26,7 +26,7 @@ export type ExternalPost = {
 	}[];
 };
 
-io.on('connection', async socket => {
+server.io.on('connection', async socket => {
 	const key = socket.handshake.query.key;
 	console.log('connecting with key', key);
 
@@ -68,6 +68,6 @@ io.on('connection', async socket => {
 
 export async function process() {
 	for await (const post of feed) {
-		io.to(post.producer.id.toString()).emit('postCreated', post);
+		server.io.to(post.producer.id.toString()).emit('postCreated', post);
 	}
 }

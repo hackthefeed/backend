@@ -11,23 +11,24 @@ datasource db {
 }
 
 model Comment {
-  id      Int    @id @default(autoincrement())
+  id      String @id @default(uuid()) @db.Uuid
   content String
 
-  post     Post   @relation(fields: [postId], references: [id])
-  postId   String
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String @db.Uuid
+
   author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
+  authorId String @db.Uuid
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Producer {
-  id      Int    @id @default(autoincrement())
+model Source {
+  id      String @id @default(uuid()) @db.Uuid
   name    String @unique
   website String
-  feedUrl String @unique
+  feed    String @unique
 
   posts       Post[]
   subscribers User[]
@@ -37,36 +38,39 @@ model Producer {
 }
 
 model Post {
-  id        String  @id
+  id        String  @unique @default(uuid()) @db.Uuid
+  uid       String  @id
   title     String
   content   String
   url       String
   thumbnail String?
 
-  producer   Producer  @relation(fields: [producerId], references: [id])
-  producerId Int
-  notes      Note[]
-  comments   Comment[]
+  source   Source @relation(fields: [sourceId], references: [id])
+  sourceId String @db.Uuid
+
+  notes    Note[]
+  comments Comment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Note {
-  id      Int    @id @default(autoincrement())
-  content String // encrypted
+  id      String @id @default(uuid()) @db.Uuid
+  content String
 
-  post     Post   @relation(fields: [postId], references: [id])
-  postId   String
+  post   Post   @relation(fields: [postId], references: [id])
+  postId String @db.Uuid
+
   author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
+  authorId String @db.Uuid
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model User {
-  id          Int     @id @default(autoincrement())
+  id          String  @id @default(uuid()) @db.Uuid
   // lower case
   email       String  @unique
   // not present if using Microsoft login
@@ -78,10 +82,10 @@ model User {
   password    String? // SHA-512 hash
   key         String  @unique @default(uuid()) @db.Uuid
 
-  subscriptions Producer[]
+  subscriptions Source[]
   notes         Note[]
+  comments      Comment[]
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  Comment   Comment[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

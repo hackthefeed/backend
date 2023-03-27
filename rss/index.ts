@@ -1,11 +1,11 @@
-import { Producer } from '@prisma/client';
+import { Source } from '@prisma/client';
 import axios, { AxiosError } from 'axios';
 import sanitizeHtml from 'sanitize-html';
 
 import { prisma } from '$/database';
 import { parse } from '$/rss/parse';
 import { sleep } from '$/rss/util';
-import type { ExternalPost } from '$/server/routes/websocket';
+import type { ExternalPost } from '$/server/routes/ws';
 
 export type FeedItem = {
 	title: string;
@@ -21,8 +21,8 @@ export type FeedItem = {
 	}
 }
 
-export function getActiveFeeds(connected: number[]) {
-	const feeds = prisma.producer.findMany({
+export function getActiveFeeds(connected: string[]) {
+	const feeds = prisma.source.findMany({
 		where: {
 			subscribers: {
 				some: {
@@ -38,14 +38,14 @@ export function getActiveFeeds(connected: number[]) {
 }
 
 export function getAllFeeds() {
-	const feeds = prisma.producer.findMany();
+	const feeds = prisma.source.findMany();
 
 	return feeds;
 }
 
-export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, void, unknown> {
-	const response = await axios.get(feed.feedUrl).catch(err => {
-		console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err);
+export async function* updateFeed(feed: Source): AsyncGenerator<ExternalPost, void, unknown> {
+	const response = await axios.get(feed.feed).catch(err => {
+		console.error(`Error parsing feed "${feed.name}" (${feed.feed}): `, err);
 	});
 
 	if (!response) return;
@@ -57,7 +57,7 @@ export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, 
 		for (const item of items) {
 			const post = await prisma.post.create({
 				data: {
-					id: typeof item.guid === 'string' ? item.guid : item.guid['#text'],
+					uid: typeof item.guid === 'string' ? item.guid : item.guid['#text'],
 					title: sanitizeHtml(item.title, {
 						allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
 						allowedAttributes: {
@@ -73,7 +73,7 @@ export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, 
 					createdAt: new Date(item.pubDate),
 					url: item.link,
 					thumbnail: item?.['media:thumbnail']?.['@_url'],
-					producer: {
+					source: {
 						connect: {
 							id: feed.id,
 						},
@@ -87,7 +87,7 @@ export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, 
 					updatedAt: true,
 					url: true,
 					thumbnail: true,
-					producer: {
+					source: {
 						select: {
 							id: true,
 							name: true,
@@ -107,9 +107,9 @@ export async function* updateFeed(feed: Producer): AsyncGenerator<ExternalPost, 
 		}
 	} catch (err) {
 		if (err instanceof AxiosError) {
-			console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl}): `, err.message);
+			console.error(`Error parsing feed "${feed.name}" (${feed.feed}): `, err.message);
 		} else {
-			console.error(`Error parsing feed "${feed.name}" (${feed.feedUrl})`);
+			console.error(`Error parsing feed "${feed.name}" (${feed.feed})`);
 		}
 	}
 }

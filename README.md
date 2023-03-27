@@ -10,6 +10,6 @@ This repository contains the source code for the HackTheFeed backend.
 ## Installation
 
 ```powershell
-yarn install
-yarn run start
+pnpm install
+pnpm run start
 ```

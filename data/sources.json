@@ -1,0 +1,794 @@
+[
+  {
+    "id": 1,
+    "name": "The Hacker News RSS Feed",
+    "website": "https://feeds.feedburner.com/TheHackersNews?format=xml",
+    "feedUrl": "https://feeds.feedburner.com/TheHackersNews?format=xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 2,
+    "name": "Graham Cluley RSS Feed",
+    "website": "https://www.grahamcluley.com/feed/",
+    "feedUrl": "https://www.grahamcluley.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 4,
+    "name": "Krebs on Security RSS Feed",
+    "website": "http://krebsonsecurity.com/feed/",
+    "feedUrl": "http://krebsonsecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 5,
+    "name": "CSO Online RSS Feed",
+    "website": "https://www.csoonline.com/in/index.rss",
+    "feedUrl": "https://www.csoonline.com/in/index.rss",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 7,
+    "name": "We Live Security RSS Feed",
+    "website": "http://feeds.feedburner.com/eset/blog",
+    "feedUrl": "http://feeds.feedburner.com/eset/blog",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 8,
+    "name": "Naked Security RSS Feed",
+    "website": "https://nakedsecurity.sophos.com/feed/",
+    "feedUrl": "https://nakedsecurity.sophos.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 9,
+    "name": "Infosecurity Magazine - Information Security & IT Security RSS Feed",
+    "website": "https://www.infosecurity-magazine.com/rss/news/",
+    "feedUrl": "https://www.infosecurity-magazine.com/rss/news/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 10,
+    "name": "JISA Softech RSS Feed",
+    "website": "https://www.jisasoftech.com/feed/",
+    "feedUrl": "https://www.jisasoftech.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 11,
+    "name": "Vicente Aceituno Canal RSS Feed",
+    "website": "https://medium.com/feed/@vaceituno",
+    "feedUrl": "https://medium.com/feed/@vaceituno",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 12,
+    "name": "Da Vinci Cybersecurity RSS Feed",
+    "website": "https://davinciforensics.co.za/cybersecurity/feed/",
+    "feedUrl": "https://davinciforensics.co.za/cybersecurity/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 13,
+    "name": "Teri Radichel RSS Feed",
+    "website": "https://medium.com/feed/@2ndsightlab",
+    "feedUrl": "https://medium.com/feed/@2ndsightlab",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 16,
+    "name": "McAfee Antivirus | Securing Tomorrow RSS Feed",
+    "website": "https://www.mcafee.com/blogs/feed/",
+    "feedUrl": "https://www.mcafee.com/blogs/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 17,
+    "name": "NSTIC Blog RSS Feed",
+    "website": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+    "feedUrl": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 20,
+    "name": "Security on TechRepublic RSS Feed",
+    "website": "http://www.techrepublic.com/rssfeeds/topic/security/?feedType=rssfeeds",
+    "feedUrl": "http://www.techrepublic.com/rssfeeds/topic/security/?feedType=rssfeeds",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 21,
+    "name": "Computerworld | Security RSS Feed",
+    "website": "https://www.computerworld.com/uk/category/security/index.rss",
+    "feedUrl": "https://www.computerworld.com/uk/category/security/index.rss",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 24,
+    "name": "TrustArc Blog RSS Feed",
+    "website": "https://trustarc.com/blog/feed/",
+    "feedUrl": "https://trustarc.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 25,
+    "name": "IdentityIQ RSS Feed",
+    "website": "https://www.identityiq.com/feed/",
+    "feedUrl": "https://www.identityiq.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 26,
+    "name": "Acunetix | Web Security Blog RSS Feed",
+    "website": "https://www.acunetix.com/blog/feed/",
+    "feedUrl": "https://www.acunetix.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 27,
+    "name": "Quick Heal Antivirus Blog RSS Feed",
+    "website": "https://blogs.quickheal.com/feed/",
+    "feedUrl": "https://blogs.quickheal.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 28,
+    "name": "Webroot Blog RSS Feed",
+    "website": "https://www.webroot.com/blog/feed/",
+    "feedUrl": "https://www.webroot.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 29,
+    "name": "ZoneAlarm Blog RSS Feed",
+    "website": "https://blog.zonealarm.com/feed/",
+    "feedUrl": "https://blog.zonealarm.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 30,
+    "name": "UpGuard Blog RSS Feed",
+    "website": "https://www.upguard.com/blog/rss.xml",
+    "feedUrl": "https://www.upguard.com/blog/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 31,
+    "name": "Seqrite Blog RSS Feed",
+    "website": "https://www.seqrite.com/blog/feed/",
+    "feedUrl": "https://www.seqrite.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 32,
+    "name": "PCI SSC Blog RSS Feed",
+    "website": "https://blog.pcisecuritystandards.org/rss.xml",
+    "feedUrl": "https://blog.pcisecuritystandards.org/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 33,
+    "name": "Heimdal Security Blog RSS Feed",
+    "website": "https://heimdalsecurity.com/blog/feed/",
+    "feedUrl": "https://heimdalsecurity.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 34,
+    "name": "InfoSec Insights RSS Feed",
+    "website": "https://sectigostore.com/blog/feed/",
+    "feedUrl": "https://sectigostore.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 35,
+    "name": "Security Affairs RSS Feed",
+    "website": "http://securityaffairs.co/wordpress/feed",
+    "feedUrl": "http://securityaffairs.co/wordpress/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 36,
+    "name": "Lohrmann on Cybersecurity | Government Technology RSS Feed",
+    "website": "https://feeds.feedburner.com/govtech/blogs/lohrmann_on_infrastructure",
+    "feedUrl": "https://feeds.feedburner.com/govtech/blogs/lohrmann_on_infrastructure",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 37,
+    "name": "IT Governance Blog | Cyber Security RSS Feed",
+    "website": "https://www.itgovernance.co.uk/blog/category/cyber-security/feed",
+    "feedUrl": "https://www.itgovernance.co.uk/blog/category/cyber-security/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 38,
+    "name": "Wallarm Blog RSS Feed",
+    "website": "https://lab.wallarm.com/feed",
+    "feedUrl": "https://lab.wallarm.com/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 39,
+    "name": "Troy Hunt RSS Feed",
+    "website": "https://www.troyhunt.com/rss/",
+    "feedUrl": "https://www.troyhunt.com/rss/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 40,
+    "name": "Tripwire Blog RSS Feed",
+    "website": "https://www.tripwire.com/state-of-security/feed/",
+    "feedUrl": "https://www.tripwire.com/state-of-security/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 41,
+    "name": "SecPod RSS Feed",
+    "website": "https://www.secpod.com/blog/feed/",
+    "feedUrl": "https://www.secpod.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 42,
+    "name": "Cheap SSL Shop RSS Feed",
+    "website": "https://www.cheapsslshop.com/blog/feed/",
+    "feedUrl": "https://www.cheapsslshop.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 43,
+    "name": "Cyber Talk RSS Feed",
+    "website": "https://www.cybertalk.org/feed",
+    "feedUrl": "https://www.cybertalk.org/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 44,
+    "name": "SecureBlitz RSS Feed",
+    "website": "https://secureblitz.com/feed/",
+    "feedUrl": "https://secureblitz.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 45,
+    "name": "Binary Defense RSS Feed",
+    "website": "https://www.binarydefense.com/feed/",
+    "feedUrl": "https://www.binarydefense.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 46,
+    "name": "Cyber Defense Magazine RSS Feed",
+    "website": "https://www.cyberdefensemagazine.com/feed/",
+    "feedUrl": "https://www.cyberdefensemagazine.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 47,
+    "name": "LogPoint' RSS Feed",
+    "website": "https://www.logpoint.com/en/feed/",
+    "feedUrl": "https://www.logpoint.com/en/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 48,
+    "name": "CyberHoot RSS Feed",
+    "website": "https://cyberhoot.com/category/blog/feed/",
+    "feedUrl": "https://cyberhoot.com/category/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 49,
+    "name": "SOC Prime RSS Feed",
+    "website": "https://socprime.com/feed/",
+    "feedUrl": "https://socprime.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 51,
+    "name": "Hacker Combat | Cyber Security and Hacking News RSS Feed",
+    "website": "https://hackercombat.com/feed/",
+    "feedUrl": "https://hackercombat.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 52,
+    "name": "Pivot Point Security RSS Feed",
+    "website": "https://www.pivotpointsecurity.com/feed/",
+    "feedUrl": "https://www.pivotpointsecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 53,
+    "name": "ClearNetwork, Inc RSS Feed",
+    "website": "https://www.clearnetwork.com/feed/",
+    "feedUrl": "https://www.clearnetwork.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 54,
+    "name": "Application and Cybersecurity Blog | Security Innovation RSS Feed",
+    "website": "https://blog.securityinnovation.com/rss.xml",
+    "feedUrl": "https://blog.securityinnovation.com/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 55,
+    "name": "Cyber-DB RSS Feed",
+    "website": "https://www.cyberdb.co/blog/feed/",
+    "feedUrl": "https://www.cyberdb.co/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 57,
+    "name": "BlackFog RSS Feed",
+    "website": "https://www.blackfog.com/feed/",
+    "feedUrl": "https://www.blackfog.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 58,
+    "name": "Entersoft Security Blog RSS Feed",
+    "website": "https://blog.entersoftsecurity.com/feed/",
+    "feedUrl": "https://blog.entersoftsecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 59,
+    "name": "TAC Security RSS Feed",
+    "website": "https://tacsecurity.com/feed/",
+    "feedUrl": "https://tacsecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 61,
+    "name": "PrivacySavvy RSS Feed",
+    "website": "https://privacysavvy.com/feed/",
+    "feedUrl": "https://privacysavvy.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 62,
+    "name": "Netsparker RSS Feed",
+    "website": "https://www.netsparker.com/blog/rss/",
+    "feedUrl": "https://www.netsparker.com/blog/rss/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 63,
+    "name": "Tao Security RSS Feed",
+    "website": "https://taosecurity.blogspot.com/feeds/posts/default?alt=rss",
+    "feedUrl": "https://taosecurity.blogspot.com/feeds/posts/default?alt=rss",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 64,
+    "name": "The Last Watchdog RSS Feed",
+    "website": "https://www.lastwatchdog.com/feed/",
+    "feedUrl": "https://www.lastwatchdog.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 65,
+    "name": "Marco Ramilli's Blog RSS Feed",
+    "website": "https://marcoramilli.com/feed/",
+    "feedUrl": "https://marcoramilli.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 67,
+    "name": "MazeBolt Security Blog RSS Feed",
+    "website": "https://blog.mazebolt.com/rss.xml",
+    "feedUrl": "https://blog.mazebolt.com/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 69,
+    "name": "Binary Blogger RSS Feed",
+    "website": "https://binaryblogger.com/feed/",
+    "feedUrl": "https://binaryblogger.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 70,
+    "name": "ANY.RUN | Cybersecurity Blog RSS Feed",
+    "website": "https://any.run/cybersecurity-blog/feed/",
+    "feedUrl": "https://any.run/cybersecurity-blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 71,
+    "name": "PC Matic TechTalk RSS Feed",
+    "website": "https://techtalk.pcmatic.com/feed/",
+    "feedUrl": "https://techtalk.pcmatic.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 72,
+    "name": "Veracode Security Blog RSS Feed",
+    "website": "http://www.veracode.com/blog/feed/",
+    "feedUrl": "http://www.veracode.com/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 74,
+    "name": "Help Net Security RSS Feed",
+    "website": "https://www.helpnetsecurity.com/feed/",
+    "feedUrl": "https://www.helpnetsecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 75,
+    "name": "Cyber Management Alliance RSS Feed",
+    "website": "https://www.cm-alliance.com/cybersecurity-blog/rss.xml",
+    "feedUrl": "https://www.cm-alliance.com/cybersecurity-blog/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 76,
+    "name": "VISTA InfoSec Blog RSS Feed",
+    "website": "https://www.vistainfosec.com/feed/",
+    "feedUrl": "https://www.vistainfosec.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 77,
+    "name": "Data Privacy Manager RSS Feed",
+    "website": "https://dataprivacymanager.net/feed/",
+    "feedUrl": "https://dataprivacymanager.net/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 78,
+    "name": "WeSecureApp RSS Feed",
+    "website": "https://wesecureapp.com/feed/",
+    "feedUrl": "https://wesecureapp.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 79,
+    "name": "G5 Cyber Security Blog RSS Feed",
+    "website": "https://blog.g5cybersecurity.com/feed/",
+    "feedUrl": "https://blog.g5cybersecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 81,
+    "name": "SecurityParrot RSS Feed",
+    "website": "https://securityparrot.com/feed/",
+    "feedUrl": "https://securityparrot.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 83,
+    "name": "Cyber Crimes Watch RSS Feed",
+    "website": "https://www.cybercrimeswatch.com/feed/",
+    "feedUrl": "https://www.cybercrimeswatch.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 84,
+    "name": "REVE Antivirus Blog RSS Feed",
+    "website": "https://www.reveantivirus.com/blog/lan/en/feed",
+    "feedUrl": "https://www.reveantivirus.com/blog/lan/en/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 86,
+    "name": "Flying Penguin RSS Feed",
+    "website": "https://www.flyingpenguin.com/?feed=rss2",
+    "feedUrl": "https://www.flyingpenguin.com/?feed=rss2",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 87,
+    "name": "Adam Levin RSS Feed",
+    "website": "https://adamlevin.com/feed/",
+    "feedUrl": "https://adamlevin.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 88,
+    "name": "Be4Sec | An Information Security Blog RSS Feed",
+    "website": "https://be4sec.com/feed/",
+    "feedUrl": "https://be4sec.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 89,
+    "name": "Dr. Erdal Ozkaya Personal Blog RSS Feed",
+    "website": "https://www.erdalozkaya.com/feed/",
+    "feedUrl": "https://www.erdalozkaya.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 90,
+    "name": "CnSight.io RSS Feed",
+    "website": "https://cnsight.io/blog/feed/",
+    "feedUrl": "https://cnsight.io/blog/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 91,
+    "name": "Identity Defined Security Alliance RSS Feed",
+    "website": "https://www.idsalliance.org/feed/",
+    "feedUrl": "https://www.idsalliance.org/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 92,
+    "name": "Exploit One RSS Feed",
+    "website": "https://www.exploitone.com/feed/",
+    "feedUrl": "https://www.exploitone.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 93,
+    "name": "InfoSec Digest RSS Feed",
+    "website": "https://www.tsfactory.com/forums/blogs/category/infosec-digest/feed/",
+    "feedUrl": "https://www.tsfactory.com/forums/blogs/category/infosec-digest/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 94,
+    "name": "CyberPilot Blog RSS Feed",
+    "website": "https://www.cyberpilot.io/cyberpilot-blog/rss.xml",
+    "feedUrl": "https://www.cyberpilot.io/cyberpilot-blog/rss.xml",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 95,
+    "name": "Canary Trap RSS Feed",
+    "website": "https://www.canarytrap.com/feed/",
+    "feedUrl": "https://www.canarytrap.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 96,
+    "name": "CyberWorkx RSS Feed",
+    "website": "https://cyberworkx.in/feed/",
+    "feedUrl": "https://cyberworkx.in/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 98,
+    "name": "Secureblink Blog RSS Feed",
+    "website": "https://www.secureblink.com/rss-feeds/threat-feed",
+    "feedUrl": "https://www.secureblink.com/rss-feeds/threat-feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 100,
+    "name": "Cyber Security & Cloud Expo Blog RSS Feed",
+    "website": "https://www.cybersecuritycloudexpo.com/feed/",
+    "feedUrl": "https://www.cybersecuritycloudexpo.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 101,
+    "name": "The Cyber Express RSS Feed",
+    "website": "https://thecyberexpress.com/feed",
+    "feedUrl": "https://thecyberexpress.com/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 102,
+    "name": "Data and computer security | The Guardian RSS Feed",
+    "website": "https://www.theguardian.com/technology/data-computer-security/rss",
+    "feedUrl": "https://www.theguardian.com/technology/data-computer-security/rss",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 103,
+    "name": "Threatpost RSS Feed",
+    "website": "https://threatpost.com/feed/",
+    "feedUrl": "https://threatpost.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 106,
+    "name": "IT Security Central RSS Feed",
+    "website": "https://itsecuritycentral.teramind.co/feed/",
+    "feedUrl": "https://itsecuritycentral.teramind.co/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 107,
+    "name": "360Quadrants RSS Feed",
+    "website": "https://blog.360quadrants.com/feed/",
+    "feedUrl": "https://blog.360quadrants.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 108,
+    "name": "Haxf4rall RSS Feed",
+    "website": "https://follow.it/haxf4rall1",
+    "feedUrl": "https://follow.it/haxf4rall1",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 113,
+    "name": "NoticeBored RSS Feed",
+    "website": "https://feeds.feedburner.com/NoticeBored",
+    "feedUrl": "https://feeds.feedburner.com/NoticeBored",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 118,
+    "name": "Curricula | Cyber Security Awareness Blog RSS Feed",
+    "website": "https://www.getcurricula.com/feed",
+    "feedUrl": "https://www.getcurricula.com/feed",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 119,
+    "name": "SecurityMadeSimple RSS Feed",
+    "website": "https://www.securitymadesimple.org/cybersecurity-blog?format=rss",
+    "feedUrl": "https://www.securitymadesimple.org/cybersecurity-blog?format=rss",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 120,
+    "name": "Information Trust Exchange Governing Association RSS Feed",
+    "website": "https://itega.org/feed/",
+    "feedUrl": "https://itega.org/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 123,
+    "name": "Aghiath Chbib RSS Feed",
+    "website": "https://aghiathchbib.com/feed/",
+    "feedUrl": "https://aghiathchbib.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 124,
+    "name": "Between The Hacks RSS Feed",
+    "website": "https://feeds.feedburner.com/ckdiii",
+    "feedUrl": "https://feeds.feedburner.com/ckdiii",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 125,
+    "name": "Black Swan Security RSS Feed",
+    "website": "https://blog.blackswansecurity.com/feed/",
+    "feedUrl": "https://blog.blackswansecurity.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 128,
+    "name": "Ignyte Assurance Platform RSS Feed",
+    "website": "https://ignyteplatform.com/feed/",
+    "feedUrl": "https://ignyteplatform.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 129,
+    "name": "Gatefy RSS Feed",
+    "website": "https://gatefy.com/feed/",
+    "feedUrl": "https://gatefy.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 131,
+    "name": "Secured You RSS Feed",
+    "website": "https://www.securedyou.com/feed/",
+    "feedUrl": "https://www.securedyou.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 139,
+    "name": "Infosavvy RSS Feed",
+    "website": "https://info-savvy.com/feed/",
+    "feedUrl": "https://info-savvy.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  },
+  {
+    "id": 140,
+    "name": "WebOrion RSS Feed",
+    "website": "https://www.theweborion.com/feed/",
+    "feedUrl": "https://www.theweborion.com/feed/",
+    "createdAt": "2023-03-04T04:10:42.690Z",
+    "updatedAt": "2023-03-04T04:10:42.690Z"
+  }
+]
