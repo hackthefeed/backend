@@ -145,7 +145,7 @@ server.post<{
 				content: request.body.content,
 				post: {
 					connect: {
-						uid: request.params.postId,
+						id: request.params.postId,
 					},
 				},
 				author: {

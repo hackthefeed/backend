@@ -28,7 +28,7 @@ export const createNoteSchema = {
 					enum: [true],
 				},
 				message: { type: 'string' },
-				data: { type: 'number' },
+				data: { type: 'string', format: 'uuid' },
 			},
 		},
 		401: {
@@ -124,7 +124,7 @@ export const createPostCommentSchema = {
 				data: {
 					type: 'object',
 					properties: {
-						id: { type: 'number' },
+						id: { type: 'string', format: 'uuid' },
 						content: { type: 'string' },
 						author: {
 							type: 'object',
@@ -191,7 +191,7 @@ export const deletePostCommentSchema = {
 export const postCommentsSchema = {
 	description: 'Gets all comments on a post',
 	tags: ['comment'],
-	querystring: {
+	params: {
 		type: 'object',
 		properties: {
 			postId: { type: 'string', format: 'uuid' },

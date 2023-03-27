@@ -8,6 +8,9 @@ export const server = fastify();
 
 await server.register(socket, {
 	path: '/ws',
+	cors: {
+		origin: true,
+	},
 });
 
 await server.register(swagger, {

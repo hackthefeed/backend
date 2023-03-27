@@ -5,7 +5,7 @@ import { AuthHeaders } from '$/server/shared/schema';
 
 import { sourceSubscribeSchema, sourceUnsubscribeSchema } from './schema';
 
-server.post<{
+server.get<{
 	Headers: AuthHeaders;
 	Params: { sourceId: string };
 }>('/sources/:sourceId/subscribe', { schema: sourceSubscribeSchema }, async (request, response) => {
@@ -44,7 +44,7 @@ server.post<{
 	};
 });
 
-server.post<{
+server.get<{
 	Headers: AuthHeaders;
 	Params: { sourceId: string };
 }>('/sources/:sourceId/unsubscribe', { schema: sourceUnsubscribeSchema }, async (request, response) => {

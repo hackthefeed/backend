@@ -3,13 +3,6 @@ import { authHeadersSchema } from '$/server/shared/schema';
 export const sourceSubscribeSchema = {
 	description: 'Subscribes to a feed',
 	tags: ['feed'],
-	body: {
-		type: 'object',
-		properties: {
-			producerId: { type: 'number' },
-		},
-		required: ['producerId'],
-	},
 	headers: authHeadersSchema,
 	params: {
 		type: 'object',
