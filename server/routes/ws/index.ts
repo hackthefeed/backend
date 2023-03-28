@@ -10,20 +10,28 @@ export const feed = generateFeed(300_000);
 
 export type ExternalPost = {
 	id: string;
-	createdAt: Date;
-	updatedAt: Date;
 	title: string;
 	content: string;
 	url: string;
 	thumbnail: string | null;
+	notes: {
+		id: string;
+		content: string;
+		author: {
+			id: string;
+			username: string | null;
+			displayName: string | null;
+		};
+	}[];
 	source: {
-		id: number;
+		id: string;
 		name: string;
 	};
-	notes: {
-		id: number;
-		content: string;
-	}[];
+	_count: {
+		comments: number;
+	};
+	createdAt: Date;
+	updatedAt: Date;
 };
 
 server.io.on('connection', async socket => {

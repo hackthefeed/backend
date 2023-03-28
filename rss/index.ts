@@ -93,15 +93,32 @@ export async function* updateFeed(feed: Source): AsyncGenerator<ExternalPost, vo
 							name: true,
 						},
 					},
+					notes: {
+						select: {
+							id: true,
+							createdAt: true,
+							updatedAt: true,
+							content: true,
+							author: {
+								select: {
+									id: true,
+									username: true,
+									displayName: true,
+								},
+							},
+						},
+						take: 0,
+					},
+					_count: {
+						select: {
+							comments: true,
+						},
+					},
 				},
-			}).catch(() => null) as ExternalPost | null;
+			}).catch(() => null);
 
 			// if it exists, we've already sent the update
 			if (post === null) continue;
-
-			// Overwrite the notes to be empty since they will not exist
-			// on new entries
-			post.notes = [];
 
 			yield post;
 		}
