@@ -55,6 +55,7 @@ export const feedSchema = {
 								},
 							},
 						},
+						required: ['id', 'title', 'content', 'createdAt', 'updatedAt', 'url', 'notes', 'source', '_count'],
 					},
 				},
 			},

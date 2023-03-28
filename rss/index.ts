@@ -1,5 +1,5 @@
 import { Source } from '@prisma/client';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import sanitizeHtml from 'sanitize-html';
 
 import { prisma } from '$/database';
