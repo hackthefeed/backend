@@ -13,3 +13,10 @@ This repository contains the source code for the HackTheFeed backend.
 pnpm install
 pnpm run start
 ```
+
+## About
+
+- HackTheFeed's backend uses [Fastify](https://fastify.io) and [Prisma](https://prisma.io) to provide an API for the frontend
+- Users are authenticated with [JWT](https://jwt.io)
+- Useras can access live feeds with [socket.io](https://socket.io)
+- Documentation is generated with [Swagger](https://swagger.io)
