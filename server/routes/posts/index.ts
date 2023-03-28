@@ -247,20 +247,19 @@ server.delete<{
 		message: 'Invalid authentication key.',
 	});
 
-	try {
-		await prisma.comment.delete({
-			where: {
-				id: request.params.commentId,
-			},
-		});
+	const updated = await prisma.comment.deleteMany({
+		where: {
+			id: request.params.commentId,
+			authorId: user.id,
+		},
+	});
 
-		return response.status(200).send({
-			success: true,
-		});
-	} catch {
-		return response.status(404).send({
-			success: false,
-			message: 'Unknown postId or commentId.',
-		});
-	}
+	if (updated.count === 0) return response.status(404).send({
+		success: false,
+		message: 'Unknown postId or commentId.',
+	});
+
+	return response.status(200).send({
+		success: true,
+	});
 });
