@@ -1,34 +1,21 @@
 import { prisma } from '$/database';
 import { server } from '$/server/server';
-import { AuthHeaders } from '$/server/shared/schema';
 
 import { feedSchema, subscriptionsSchema } from './schema';
 import { FeedSchemaQuery } from './types';
 
 server.get<{
-	Headers: AuthHeaders;
 	Querystring: FeedSchemaQuery;
-}>('/me/feed', { schema: feedSchema }, async (request, response) => {
-	const user = await prisma.user.findUnique({
-		where: {
-			key: request.headers.key,
-		},
-		select: {
-			id: true,
-		},
-	});
-
-	if (user === null) return response.status(401).send({
-		success: false,
-		message: 'Invalid authentication key.',
-	});
-
+}>('/me/feed', {
+	schema: feedSchema,
+	preHandler: [server.auth],
+}, async (request) => {
 	const posts = await prisma.post.findMany({
 		where: {
 			source: {
 				subscribers: {
 					some: {
-						key: request.headers.key,
+						id: request.user.id,
 					},
 				},
 			},
@@ -52,7 +39,7 @@ server.get<{
 			notes: {
 				where: {
 					author: {
-						key: request.headers.key,
+						id: request.user.id,
 					},
 				},
 				select: {
@@ -85,30 +72,17 @@ server.get<{
 	};
 });
 
-server.get<{
-	Headers: AuthHeaders;
-}>('/me/subscriptions', { schema: subscriptionsSchema }, async (request, response) => {
-	const user = await prisma.user.findUnique({
-		where: {
-			key: request.headers.key,
-		},
-		select: {
-			id: true,
-		},
-	});
-
-	if (user === null) return response.status(401).send({
-		success: false,
-		message: 'Invalid authentication key.',
-	});
-
+server.get('/me/subscriptions', {
+	schema: subscriptionsSchema,
+	preHandler: [server.auth],
+}, async request => {
 	const subscriptions = await prisma.source.findMany({
 		select: {
 			id: true,
 			name: true,
 			subscribers: {
 				where: {
-					key: request.headers.key,
+					id: request.user.id,
 				},
 				select: {
 					id: true,

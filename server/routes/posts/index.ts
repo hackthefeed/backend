@@ -1,6 +1,5 @@
 import { prisma } from '$/database';
 import { server } from '$/server/server';
-import { AuthHeaders } from '$/server/shared/schema';
 
 import { createNoteSchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema, viewPostSchema } from './schema';
 import { CreateNoteSchemaBody, CreatePostCommnentSchema } from './types';
@@ -20,12 +19,19 @@ server.get<{
 			thumbnail: true,
 			updatedAt: true,
 			createdAt: true,
+			source: {
+				select: {
+					id: true,
+					name: true,
+				},
+			},
 			comments: {
 				select: {
 					id: true,
 					content: true,
 					author: {
 						select: {
+							id: true,
 							username: true,
 							displayName: true,
 						},
@@ -58,27 +64,18 @@ server.get<{
 
 server.post<{
 	Body: CreateNoteSchemaBody;
-	Headers: AuthHeaders;
 	Params: { postId: string };
-}>('/posts/:postId/notes', { schema: createNoteSchema }, async (request, response) => {
-	const user = await prisma.user.findUnique({
-		where: {
-			key: request.headers.key,
-		},
-	});
-
-	if (user === null) return response.status(401).send({
-		message: 'Invalid authentication key.',
-		success: false,
-	});
-
+}>('/posts/:postId/notes', {
+	schema: createNoteSchema,
+	preHandler: [server.auth],
+}, async (request, response) => {
 	try {
 		const note = await prisma.note.create({
 			data: {
 				content: request.body.content,
 				author: {
 					connect: {
-						id: user.id,
+						id: request.user.id,
 					},
 				},
 				post: {
@@ -106,25 +103,16 @@ server.post<{
 });
 
 server.delete<{
-	Headers: AuthHeaders;
 	Params: { postId: string; noteId: string };
-}>('/posts/:postId/notes/:noteId', { schema: deleteNoteSchema }, async (request, response) => {
-	const user = await prisma.user.findUnique({
-		where: {
-			key: request.headers.key,
-		},
-	});
-
-	if (user === null) return response.status(401).send({
-		message: 'Invalid authentication key.',
-		success: false,
-	});
-
+}>('/posts/:postId/notes/:noteId', {
+	schema: deleteNoteSchema,
+	preHandler: [server.auth],
+}, async (request, response) => {
 	const updated = await prisma.note.deleteMany({
 		where: {
 			id: request.params.noteId,
 			postId: request.params.postId,
-			authorId: user.id,
+			authorId: request.user.id,
 		},
 	});
 
@@ -135,7 +123,6 @@ server.delete<{
 
 	return {
 		success: true,
-		message: 'Note deleted successfully.',
 	};
 });
 
@@ -147,13 +134,17 @@ server.get<{
 			postId: request.params.postId,
 		},
 		select: {
+			id: true,
 			content: true,
 			author: {
 				select: {
+					id: true,
 					username: true,
 					displayName: true,
 				},
 			},
+			createdAt: true,
+			updatedAt: true,
 		},
 		orderBy: [
 			{
@@ -173,23 +164,11 @@ server.get<{
 
 server.post<{
 	Body: CreatePostCommnentSchema;
-	Headers: AuthHeaders;
 	Params: { postId: string };
-}>('/posts/:postId/comments', { schema: createPostCommentSchema }, async (request, response) => {
-	const user = await prisma.user.findUnique({
-		where: {
-			key: request.headers.key,
-		},
-		select: {
-			id: true,
-		},
-	});
-
-	if (user === null) return response.status(401).send({
-		success: false,
-		message: 'Invalid authentication key.',
-	});
-
+}>('/posts/:postId/comments', {
+	schema: createPostCommentSchema,
+	preHandler: [server.auth],
+}, async (request, response) => {
 	try {
 		const comment = await prisma.comment.create({
 			data: {
@@ -201,7 +180,7 @@ server.post<{
 				},
 				author: {
 					connect: {
-						id: user.id,
+						id: request.user.id,
 					},
 				},
 			},
@@ -210,6 +189,7 @@ server.post<{
 				content: true,
 				author: {
 					select: {
+						id: true,
 						username: true,
 						displayName: true,
 					},
@@ -230,27 +210,15 @@ server.post<{
 });
 
 server.delete<{
-	Headers: AuthHeaders;
 	Params: { postId: string; commentId: string };
-}>('/posts/:postId/comments/:commentId', { schema: deletePostCommentSchema }, async (request, response) => {
-	const user = await prisma.user.findUnique({
-		where: {
-			key: request.headers.key,
-		},
-		select: {
-			id: true,
-		},
-	});
-
-	if (user === null) return response.status(401).send({
-		success: false,
-		message: 'Invalid authentication key.',
-	});
-
+}>('/posts/:postId/comments/:commentId', {
+	schema: deletePostCommentSchema,
+	preHandler: [server.auth],
+}, async (request, response) => {
 	const updated = await prisma.comment.deleteMany({
 		where: {
 			id: request.params.commentId,
-			authorId: user.id,
+			authorId: request.user.id,
 		},
 	});
 

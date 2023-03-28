@@ -80,7 +80,6 @@ model User {
   displayName String?
   // not present if using Microsoft login
   password    String? // SHA-512 hash
-  key         String  @unique @default(uuid()) @db.Uuid
 
   subscriptions Source[]
   notes         Note[]

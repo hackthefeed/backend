@@ -44,8 +44,8 @@ export function getAllFeeds() {
 }
 
 export async function* updateFeed(feed: Source): AsyncGenerator<ExternalPost, void, unknown> {
-	const response = await axios.get(feed.feed).catch(err => {
-		console.error(`Error parsing feed "${feed.name}" (${feed.feed}): `, err);
+	const response = await axios.get(feed.feed).catch(() => {
+		console.error(`Error parsing feed "${feed.name}" (${feed.feed})`);
 	});
 
 	if (!response) return;

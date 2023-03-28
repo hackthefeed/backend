@@ -57,12 +57,16 @@ server.get<{
 				displayName: graphUser.data.displayName,
 			},
 			select: {
-				key: true,
+				id: true,
 			},
 		});
 
+		const token = server.jwt.sign({
+			id: user.id,
+		});
+
 		// frontend should store the key in localStorage
-		return response.redirect(302, `https://hackthefeed.com/?key=${user.key}`);
+		return response.redirect(302, `https://hackthefeed.com/?key=${token}`);
 	} catch (e) {
 		console.error(e);
 		return response.status(403).send({
@@ -111,7 +115,7 @@ server.post<{
 			password: hash,
 		},
 		select: {
-			key: true,
+			id: true,
 		},
 	});
 
@@ -120,9 +124,13 @@ server.post<{
 		message: 'Invalid username or password.',
 	});
 
+	const token = server.jwt.sign({
+		id: user.id,
+	});
+
 	return {
 		success: true,
-		key: user.key,
+		data: token,
 	};
 });
 
@@ -144,14 +152,19 @@ server.post<{
 				password: hash,
 			},
 			select: {
-				key: true,
+				id: true,
 			},
 		});
 
+		const token = server.jwt.sign({
+			id: user.id,
+		});
+
+		console.log(token);
+
 		return response.status(201).send({
-			message: 'User created successfully.',
 			success: true,
-			user,
+			data: token,
 		});
 	} catch {
 		return response.status(400).send({

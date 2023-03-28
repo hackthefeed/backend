@@ -9,7 +9,7 @@ export const microsoftSchema = {
 		required: ['code'],
 	},
 	response: {
-		200: {
+		302: {
 			type: 'object',
 			description: 'Successful response, redirects to home page',
 		},
@@ -47,7 +47,7 @@ export const loginSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				key: { type: 'string', format: 'uuid' },
+				data: { type: 'string' },
 			},
 		},
 		401: {
@@ -85,12 +85,7 @@ export const registerSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				user: {
-					type: 'object',
-					properties: {
-						key: { type: 'string', format: 'uuid' },
-					},
-				},
+				data: { type: 'string' },
 			},
 		},
 		400: {

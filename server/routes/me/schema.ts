@@ -1,8 +1,6 @@
-import { authHeadersSchema } from '$/server/shared/schema';
-
 export const feedSchema = {
 	description: 'Gets the user\'s feed',
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	querystring: {
 		type: 'object',
 		properties: {
@@ -21,42 +19,7 @@ export const feedSchema = {
 				},
 				data: {
 					type: 'array',
-					items: {
-						type: 'object',
-						properties: {
-							id: { type: 'string' },
-							title: { type: 'string' },
-							content: { type: 'string' },
-							createdAt: { type: 'string' },
-							updatedAt: { type: 'string' },
-							url: { type: 'string' },
-							thumbnail: { type: 'string' },
-							notes: {
-								type: 'array',
-								items: {
-									type: 'object',
-									properties: {
-										content: { type: 'string' },
-										id: { type: 'string' },
-									},
-								},
-							},
-							source: {
-								type: 'object',
-								properties: {
-									id: { type: 'string' },
-									name: { type: 'string' },
-								},
-							},
-							_count: {
-								type: 'object',
-								properties: {
-									comments: { type: 'number' },
-								},
-							},
-						},
-						required: ['id', 'title', 'content', 'createdAt', 'updatedAt', 'url', 'notes', 'source', '_count'],
-					},
+					items: { $ref: 'feedPost#' },
 				},
 			},
 		},
@@ -65,7 +28,7 @@ export const feedSchema = {
 
 export const subscriptionsSchema = {
 	description: 'Gets all sources and shows if the user is subscribed to them',
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	response: {
 		200: {
 			description: 'Successful response',

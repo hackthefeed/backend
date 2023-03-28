@@ -1,6 +1,7 @@
 // import routes so they register routes
 import 'dotenv/config';
 import '$/server/routes';
+import '$/server/shared/schema';
 
 import { process } from '$/server/routes/ws';
 import { server } from '$/server/server';

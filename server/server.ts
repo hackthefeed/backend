@@ -4,14 +4,9 @@ import swaggerUi from '@fastify/swagger-ui';
 import fastify from 'fastify';
 import socket from 'fastify-socket.io';
 
-export const server = fastify();
+import auth from '$/server/plugins/auth';
 
-await server.register(socket, {
-	path: '/ws',
-	cors: {
-		origin: true,
-	},
-});
+export const server = fastify();
 
 await server.register(swagger, {
 	swagger: {
@@ -39,6 +34,15 @@ await server.register(swaggerUi, {
 	transformStaticCSP: (header) => header,
 	transformSpecification: (swaggerObject) => { return swaggerObject; },
 	transformSpecificationClone: true,
+});
+
+await server.register(auth);
+
+await server.register(socket, {
+	path: '/ws',
+	cors: {
+		origin: true,
+	},
 });
 
 await server.register(cors, {

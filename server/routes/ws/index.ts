@@ -27,15 +27,18 @@ export type ExternalPost = {
 };
 
 server.io.on('connection', async socket => {
-	const key = socket.handshake.query.key;
-	console.log('connecting with key', key);
+	const token = socket.handshake.headers.authorization;
 
-	if (typeof key !== 'string') return socket.disconnect(true);
+	if (typeof token !== 'string') return socket.disconnect(true);
+
+	const payload = server.jwt.verify(token);
+
+	console.log(payload);
 
 	// Check if key is valid
 	const user = await prisma.user.findUnique({
 		where: {
-			key,
+			id: '',
 		},
 		select: {
 			id: true,

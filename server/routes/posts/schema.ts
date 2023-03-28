@@ -1,5 +1,3 @@
-import { authHeadersSchema } from '$/server/shared/schema';
-
 export const createNoteSchema = {
 	description: 'Creates a note on a post',
 	tags: ['note'],
@@ -17,7 +15,7 @@ export const createNoteSchema = {
 		},
 		required: ['postId'],
 	},
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	response: {
 		200: {
 			description: 'Successful response',
@@ -48,7 +46,7 @@ export const createNoteSchema = {
 export const deleteNoteSchema = {
 	description: 'Deletes a note on from post',
 	tags: ['note'],
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	params: {
 		type: 'object',
 		properties: {
@@ -66,7 +64,6 @@ export const deleteNoteSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				message: { type: 'string' },
 			},
 		},
 		401: {
@@ -111,7 +108,7 @@ export const createPostCommentSchema = {
 		},
 		required: ['content'],
 	},
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	response: {
 		200: {
 			description: 'Successful response',
@@ -121,20 +118,7 @@ export const createPostCommentSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				data: {
-					type: 'object',
-					properties: {
-						id: { type: 'string', format: 'uuid' },
-						content: { type: 'string' },
-						author: {
-							type: 'object',
-							properties: {
-								username: { type: 'string' },
-								displayName: { type: 'string' },
-							},
-						},
-					},
-				},
+				data: { $ref: 'comment#' },
 			},
 		},
 		401: {
@@ -162,7 +146,7 @@ export const deletePostCommentSchema = {
 		},
 		required: ['postId', 'commentId'],
 	},
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	response: {
 		200: {
 			description: 'Successful response',
@@ -207,47 +191,7 @@ export const viewPostSchema = {
 					type: 'boolean',
 					enum: [true],
 				},
-				data: {
-					type: 'object',
-					properties: {
-						id: { type: 'string', format: 'uuid' },
-						title: { type: 'string' },
-						content: { type: 'string' },
-						url: { type: 'string' },
-						thumbnail: { type: 'string' },
-						updatedAt: { type: 'string', format: 'date-time' },
-						createdAt: { type: 'string', format: 'date-time' },
-						comments: {
-							type: 'array',
-							items: {
-								type: 'object',
-								properties: {
-									id: { type: 'string', format: 'uuid' },
-									content: { type: 'string' },
-									author: {
-										type: 'object',
-										properties: {
-											username: { type: 'string' },
-											displayName: { type: 'string' },
-										},
-										required: [],
-									},
-									createdAt: { type: 'string', format: 'date-time' },
-									updatedAt: { type: 'string', format: 'date-time' },
-								},
-							},
-						},
-					},
-					required: [
-						'id',
-						'title',
-						'content',
-						'url',
-						'updatedAt',
-						'createdAt',
-						'comments',
-					],
-				},
+				data: { $ref: 'post#' },
 			},
 		},
 		404: {
@@ -285,19 +229,7 @@ export const postCommentsSchema = {
 				},
 				data: {
 					type: 'array',
-					items: {
-						type: 'object',
-						properties: {
-							content: { type: 'string' },
-							author: {
-								type: 'object',
-								properties: {
-									username: { type: 'string' },
-									displayName: { type: 'string' },
-								},
-							},
-						},
-					},
+					items: { $ref: 'comment#' },
 				},
 			},
 		},

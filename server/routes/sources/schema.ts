@@ -1,9 +1,7 @@
-import { authHeadersSchema } from '$/server/shared/schema';
-
 export const sourceSubscribeSchema = {
 	description: 'Subscribes to a feed',
 	tags: ['feed'],
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	params: {
 		type: 'object',
 		properties: {
@@ -39,7 +37,7 @@ export const sourceSubscribeSchema = {
 export const sourceUnsubscribeSchema = {
 	description: 'Unsubscribes from a feed',
 	tags: ['feed'],
-	headers: authHeadersSchema,
+	headers: { $ref: 'auth#' },
 	params: {
 		type: 'object',
 		properties: {
