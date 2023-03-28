@@ -33,6 +33,14 @@ server.get<{
 					createdAt: true,
 					updatedAt: true,
 				},
+				orderBy: [
+					{
+						updatedAt: 'desc',
+					},
+					{
+						id: 'desc',
+					},
+				],
 			},
 		},
 	});
@@ -152,7 +160,7 @@ server.get<{
 				updatedAt: 'desc',
 			},
 			{
-				id: 'asc',
+				id: 'desc',
 			},
 		],
 	});
