@@ -11,7 +11,7 @@ async function main() {
 		port: 8081,
 	});
 
-	console.log(`Listening at ${api} and 0.0.0.0:8082`);
+	console.log(`Listening at ${api}`);
 
 	// process feed updates
 	process();

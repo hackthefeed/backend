@@ -6,14 +6,14 @@ import socket from 'fastify-socket.io';
 
 export const server = fastify();
 
-server.register(socket, {
+await server.register(socket, {
 	path: '/ws',
 	cors: {
 		origin: true,
 	},
 });
 
-server.register(swagger, {
+await server.register(swagger, {
 	swagger: {
 		info: {
 			title: 'HackTheFeed',
@@ -25,7 +25,7 @@ server.register(swagger, {
 	},
 });
 
-server.register(swaggerUi, {
+await server.register(swaggerUi, {
 	routePrefix: '/docs',
 	uiConfig: {
 		docExpansion: 'full',
@@ -41,6 +41,6 @@ server.register(swaggerUi, {
 	transformSpecificationClone: true,
 });
 
-server.register(cors, {
+await server.register(cors, {
 	origin: true,
 });
