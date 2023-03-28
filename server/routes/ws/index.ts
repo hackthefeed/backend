@@ -16,7 +16,7 @@ export type ExternalPost = {
 	content: string;
 	url: string;
 	thumbnail: string | null;
-	producer: {
+	source: {
 		id: number;
 		name: string;
 	};
@@ -68,6 +68,6 @@ server.io.on('connection', async socket => {
 
 export async function process() {
 	for await (const post of feed) {
-		server.io.to(post.producer.id.toString()).emit('postCreated', post);
+		server.io.to(post.source.id.toString()).emit('postCreated', post);
 	}
 }

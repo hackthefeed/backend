@@ -63,7 +63,7 @@ export const feedSchema = {
 };
 
 export const subscriptionsSchema = {
-	description: 'Gets all producers and shows if the user is subscribed to them',
+	description: 'Gets all sources and shows if the user is subscribed to them',
 	headers: authHeadersSchema,
 	response: {
 		200: {
