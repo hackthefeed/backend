@@ -106,11 +106,7 @@ export async function* updateFeed(feed: Source): AsyncGenerator<ExternalPost, vo
 			yield post;
 		}
 	} catch (err) {
-		if (err instanceof AxiosError) {
-			console.error(`Error parsing feed "${feed.name}" (${feed.feed}): `, err.message);
-		} else {
-			console.error(`Error parsing feed "${feed.name}" (${feed.feed})`);
-		}
+		console.error(`Error parsing feed "${feed.name}" (${feed.feed})`);
 	}
 }
 
