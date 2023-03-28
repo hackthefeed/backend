@@ -34,19 +34,27 @@ export type ExternalPost = {
 	updatedAt: Date;
 };
 
+function getUserFromToken(token?: string): { id: string } | null {
+	if (typeof token !== 'string' || !token.startsWith('Bearer ')) return null;
+
+	try {
+		const payload = server.jwt.verify(token.slice(7));
+		return payload as { id: string };
+	} catch {
+		return null;
+	}
+}
+
 server.io.on('connection', async socket => {
 	const token = socket.handshake.headers.authorization;
+	const payload = getUserFromToken(token);
 
-	if (typeof token !== 'string') return socket.disconnect(true);
-
-	const payload = server.jwt.verify(token);
-
-	console.log(payload);
+	if (!payload) return socket.disconnect(true);
 
 	// Check if key is valid
 	const user = await prisma.user.findUnique({
 		where: {
-			id: '',
+			id: payload.id,
 		},
 		select: {
 			id: true,
