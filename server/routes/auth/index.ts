@@ -23,6 +23,26 @@ function validEmail(email: string) {
 	return EMAIL_REGEX.test(email);
 }
 
+async function verifyToken(token: string, ip: string): Promise<boolean> {
+	const formData = new FormData();
+
+	formData.append('secret', process.env.CF_TURNSTILE_SECRET!);
+	formData.append('response', token);
+	formData.append('remoteip', ip);
+
+	const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+	const result = await fetch(url, {
+		body: formData,
+		method: 'POST',
+	});
+
+	const outcome = await result.json();
+
+	console.log(outcome);
+
+	return outcome.success;
+}
+
 server.get<{
 	Querystring: MicrosoftSchemaQuery;
 }>('/auth/microsoft', { schema: microsoftSchema }, async (request, response) => {
@@ -79,6 +99,15 @@ server.get<{
 server.post<{
 	Body: LoginSchemaBody
 }>('/auth/login', { schema: loginSchema }, async (request, response) => {
+	const captcha = await verifyToken(request.body.token, request.ip);
+
+	if (!captcha) {
+		return response.status(403).send({
+			success: false,
+			message: 'Invalid captcha.',
+		});
+	}
+
 	const userWithSalt = await prisma.user.findFirst({
 		where: {
 			OR: [
@@ -137,6 +166,15 @@ server.post<{
 server.post<{
 	Body: RegisterSchema;
 }>('/auth/register', { schema: registerSchema }, async (request, response) => {
+	const captcha = await verifyToken(request.body.token, request.ip);
+
+	if (!captcha) {
+		return response.status(403).send({
+			success: false,
+			message: 'Invalid captcha.',
+		});
+	}
+
 	if (!validEmail(request.body.email)) return response.status(400).send({
 		message: 'Invalid email.',
 		success: false,

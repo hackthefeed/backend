@@ -35,8 +35,9 @@ export const loginSchema = {
 		properties: {
 			username: { type: 'string' },
 			password: { type: 'string' },
+			token: { type: 'string' },
 		},
-		required: ['username', 'password'],
+		required: ['username', 'password', 'token'],
 	},
 	response: {
 		200: {
@@ -73,8 +74,9 @@ export const registerSchema = {
 			username: { type: 'string' },
 			email: { type: 'string' },
 			password: { type: 'string' },
+			token: { type: 'string' },
 		},
-		required: ['username', 'email', 'password'],
+		required: ['username', 'email', 'password', 'token'],
 	},
 	response: {
 		201: {
