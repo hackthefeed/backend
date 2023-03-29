@@ -1,5 +1,6 @@
 export const feedSchema = {
 	description: 'Gets the user\'s feed',
+	tags: ['feed'],
 	headers: { $ref: 'auth#' },
 	querystring: {
 		type: 'object',
@@ -28,6 +29,7 @@ export const feedSchema = {
 
 export const subscriptionsSchema = {
 	description: 'Gets all sources and shows if the user is subscribed to them',
+	tags: ['feed'],
 	headers: { $ref: 'auth#' },
 	response: {
 		200: {
