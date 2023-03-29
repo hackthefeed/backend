@@ -16,6 +16,11 @@ type MicrosoftUserResponse = {
 	userPrincipalName: string;
 }
 
+type TurnstileResponse = {
+	success: boolean;
+	hostname: string;
+}
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 // Not a great implementation, but it's a good enough one for now.
@@ -36,11 +41,9 @@ async function verifyToken(token: string, ip: string): Promise<boolean> {
 		method: 'POST',
 	});
 
-	const outcome = await result.json();
+	const outcome: TurnstileResponse = await result.json();
 
-	console.log(outcome);
-
-	return outcome.success;
+	return outcome.hostname === 'hackthefeed.com' && outcome.success;
 }
 
 server.get<{
