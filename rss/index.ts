@@ -57,7 +57,7 @@ export async function* updateFeed(feed: Source): AsyncGenerator<ExternalPost, vo
 		for (const item of items) {
 			const post = await prisma.post.create({
 				data: {
-					uid: typeof item.guid === 'string' ? item.guid : item.guid['#text'],
+					uid: typeof item.guid === 'string' ? item.guid : item.guid?.['#text'] ?? item.link,
 					title: sanitizeHtml(item.title, {
 						allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
 						allowedAttributes: {
@@ -133,8 +133,6 @@ export async function* generateFeed(delayMs = 300_000) {
 
 	for (; ;) {
 		for (const feed of feeds) {
-			// console.log(`Updating feed "${feed.name}" (${feed.feedUrl})...`);
-
 			yield* updateFeed(feed);
 		}
 
