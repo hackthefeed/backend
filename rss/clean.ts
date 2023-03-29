@@ -1,33 +1,17 @@
 import sanitizeHtml from 'sanitize-html';
 
-import { prisma } from '$/database';
+// replace double spaces with a single space
+export const WHITESPACRE_REGEX = /[ \t]{2,}/g;
+// replace three or more newlines with two newlines
+export const LINES_REGEX = /(?:[ \t]*\n[ \t]*){3,}/g;
 
-async function main() {
-	const posts = await prisma.post.findMany({});
+export function sanitize(text: string) {
+	const clean = sanitizeHtml(text, {
+		allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
+		allowedAttributes: {
+			'a': ['href'],
+		},
+	});
 
-	for (const [i, post] of posts.entries()) {
-		await prisma.post.update({
-			where: {
-				id: post.id,
-			},
-			data: {
-				content: sanitizeHtml(post.content, {
-					allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
-					allowedAttributes: {
-						'a': ['href'],
-					},
-				}),
-				title: sanitizeHtml(post.title, {
-					allowedTags: ['b', 'i', 'em', 'strong', 'a', 'br'],
-					allowedAttributes: {
-						'a': ['href'],
-					},
-				}),
-			},
-		});
-
-		console.log(`[${i}/${posts.length}] Updated post ${post.id}`);
-	}
+	return clean.trim().replaceAll(WHITESPACRE_REGEX, ' ').replaceAll(LINES_REGEX, '\n\n');
 }
-
-main();
