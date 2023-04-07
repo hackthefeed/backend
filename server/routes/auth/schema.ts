@@ -71,7 +71,7 @@ export const registerSchema = {
 	body: {
 		type: 'object',
 		properties: {
-			username: { type: 'string' },
+			username: { type: 'string', minLength: 8 },
 			email: { type: 'string' },
 			password: { type: 'string' },
 			token: { type: 'string' },

@@ -173,12 +173,12 @@ server.post<{
 	if (!captcha) {
 		return response.status(403).send({
 			success: false,
-			message: 'Invalid captcha.',
+			message: 'Invalid captcha provided',
 		});
 	}
 
 	if (!validEmail(request.body.email)) return response.status(400).send({
-		message: 'Invalid email.',
+		message: 'Invalid email address',
 		success: false,
 	});
 
@@ -200,15 +200,13 @@ server.post<{
 			id: user.id,
 		});
 
-		console.log(token);
-
 		return response.status(201).send({
 			success: true,
 			data: token,
 		});
 	} catch {
 		return response.status(400).send({
-			message: 'Email or username is already in use.',
+			message: 'Email or username is already in use',
 			success: false,
 		});
 	}
