@@ -66,8 +66,7 @@ export async function* parseInsightStream(stream: Readable) {
 			if (json.choices[0].finish_reason === 'stop') return;
 			if (json.choices[0].delta.content === undefined) continue;
 
-			yield sliced;
-			yield '\n';
+			yield json.choices[0].delta.content;
 		}
 	}
 }
