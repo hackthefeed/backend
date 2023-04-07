@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+
 import axios from 'axios';
 
 import { prisma } from '$/database';
@@ -44,6 +46,28 @@ async function verifyToken(token: string, ip: string): Promise<boolean> {
 	const outcome: TurnstileResponse = await result.json();
 
 	return outcome.hostname === 'hackthefeed.com' && outcome.success;
+}
+
+async function verifyPasswordStrength(password: string) {
+	const hasher = createHash('sha1');
+
+	hasher.update(password);
+
+	const hash = hasher.digest('hex').toUpperCase();
+	const result = await axios.get(`https://api.pwnedpasswords.com/range/${hash.slice(0, 5)}`);
+
+	const hashes = await result.data.split('\n');
+	const end = hash.slice(5);
+
+	for (const h of hashes) {
+		const [hash, count] = h.split(':');
+
+		if (hash === end) {
+			return parseInt(count);
+		}
+	}
+
+	return 0;
 }
 
 server.get<{
@@ -173,12 +197,17 @@ server.post<{
 	if (!captcha) {
 		return response.status(403).send({
 			success: false,
-			message: 'Invalid captcha provided',
+			message: 'invalid_captcha',
 		});
 	}
 
 	if (!validEmail(request.body.email)) return response.status(400).send({
-		message: 'Invalid email address',
+		message: 'invalid_email',
+		success: false,
+	});
+
+	if (await verifyPasswordStrength(request.body.password) > 0) return response.status(400).send({
+		message: 'password_too_common',
 		success: false,
 	});
 
@@ -206,7 +235,7 @@ server.post<{
 		});
 	} catch {
 		return response.status(400).send({
-			message: 'Email or username is already in use',
+			message: 'email_or_username_taken',
 			success: false,
 		});
 	}
