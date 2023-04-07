@@ -60,12 +60,14 @@ export async function* parseInsightStream(stream: Readable) {
 			if (data === 'data: [DONE]') return;
 			if (!data.startsWith('data: ')) continue;
 
-			const json: ChatCompletionChunk = JSON.parse(data.slice(6));
+			const sliced = data.slice(6);
+			const json: ChatCompletionChunk = JSON.parse(sliced);
 
 			if (json.choices[0].finish_reason === 'stop') return;
 			if (json.choices[0].delta.content === undefined) continue;
 
-			yield json.choices[0].delta.content;
+			yield sliced;
+			yield '\n';
 		}
 	}
 }

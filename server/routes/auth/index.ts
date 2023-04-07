@@ -90,8 +90,7 @@ server.get<{
 
 		// frontend should store the key in localStorage
 		return response.redirect(302, `https://hackthefeed.com/?key=${token}`);
-	} catch (e) {
-		console.error(e);
+	} catch {
 		return response.status(403).send({
 			message: 'Invalid authenication code.',
 			success: false,
