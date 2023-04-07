@@ -46,6 +46,7 @@
 		"fastify-plugin": "^4.5.0",
 		"fastify-socket.io": "^4.0.0",
 		"jsonwebtoken": "^9.0.0",
+		"openai": "^3.2.1",
 		"sanitize-html": "^2.10.0",
 		"socket.io": "^4.6.1"
 	}

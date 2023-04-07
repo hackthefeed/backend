@@ -85,6 +85,7 @@
 				"before": false,
 				"after": true
 			}
-		]
+		],
+		"quote-props": ["error", "as-needed"]
 	}
 }

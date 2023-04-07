@@ -1,7 +1,8 @@
 import { prisma } from '$/database';
 import { server } from '$/server/server';
+import { createInsight } from '$/server/util';
 
-import { createNoteSchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema, viewPostSchema } from './schema';
+import { createNoteSchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema, postInsightsSchema, viewPostSchema } from './schema';
 import { CreateNoteSchemaBody, CreatePostCommnentSchema } from './types';
 
 server.get<{
@@ -230,4 +231,30 @@ server.delete<{
 	return response.status(200).send({
 		success: true,
 	});
+});
+
+server.get<{
+	Params: { postId: string };
+}>('/posts/:postId/insights', { schema: postInsightsSchema }, async (request, response) => {
+	const post = await prisma.post.findFirst({
+		where: {
+			id: request.params.postId,
+		},
+		select: {
+			content: true,
+			title: true,
+			source: {
+				select: {
+					name: true,
+				},
+			},
+		},
+	});
+
+	if (post === null) return response.status(404).send({
+		message: 'Unknown postId.',
+		success: false,
+	});
+
+	return response.send(await createInsight(post));
 });

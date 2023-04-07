@@ -235,3 +235,15 @@ export const postCommentsSchema = {
 		},
 	},
 };
+
+export const postInsightsSchema = {
+	description: 'Gets insights on a post',
+	tags: ['insight'],
+	params: {
+		type: 'object',
+		properties: {
+			postId: { type: 'string', format: 'uuid' },
+		},
+		required: ['postId'],
+	},
+};
