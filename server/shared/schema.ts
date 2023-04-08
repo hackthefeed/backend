@@ -38,7 +38,12 @@ server.addSchema({
 		id: { type: 'string', format: 'uuid' },
 		content: { type: 'string' },
 		author: { $ref: 'user#' },
-		parentId: { type: 'string', format: 'uuid' },
+		parentId: {
+			oneOf: [
+				{ type: 'string', format: 'uuid' },
+				{ type: 'null' },
+			],
+		},
 		createdAt: { type: 'string', format: 'date-time' },
 		updatedAt: { type: 'string', format: 'date-time' },
 	},
