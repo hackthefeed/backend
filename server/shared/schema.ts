@@ -47,7 +47,7 @@ server.addSchema({
 		createdAt: { type: 'string', format: 'date-time' },
 		updatedAt: { type: 'string', format: 'date-time' },
 	},
-	required: ['id', 'content', 'author', 'createdAt', 'updatedAt'],
+	required: ['content'],
 });
 
 server.addSchema({
