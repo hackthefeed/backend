@@ -15,7 +15,7 @@ model Comment {
   content String
 
   parentId String?   @db.Uuid
-  parent   Comment?  @relation("comment", fields: [parentId], references: [id])
+  parent   Comment?  @relation("comment", fields: [parentId], references: [id], onDelete: Cascade)
   children Comment[] @relation("comment")
 
   post   Post   @relation(fields: [postId], references: [id])
