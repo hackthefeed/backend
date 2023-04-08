@@ -30,6 +30,7 @@ server.get<{
 				select: {
 					id: true,
 					content: true,
+					parentId: true,
 					author: {
 						select: {
 							id: true,
