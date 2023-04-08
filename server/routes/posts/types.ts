@@ -2,6 +2,6 @@ export type CreateNoteSchemaBody = {
 	content: string;
 };
 
-export type CreatePostCommnentSchema = {
+export type CreatePostCommentSchema = {
 	content: string;
 };

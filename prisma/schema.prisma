@@ -14,6 +14,10 @@ model Comment {
   id      String @id @default(uuid()) @db.Uuid
   content String
 
+  parentId String?   @db.Uuid
+  parent   Comment?  @relation("comment", fields: [parentId], references: [id])
+  children Comment[] @relation("comment")
+
   post   Post   @relation(fields: [postId], references: [id])
   postId String @db.Uuid
 

@@ -135,6 +135,50 @@ export const createPostCommentSchema = {
 	},
 };
 
+export const createPostCommentReplySchema = {
+	description: 'Replies to a comment on a post',
+	tags: ['comment'],
+	params: {
+		type: 'object',
+		properties: {
+			postId: { type: 'string', format: 'uuid' },
+		},
+		required: ['postId'],
+	},
+	body: {
+		type: 'object',
+		properties: {
+			content: { type: 'string' },
+		},
+		required: ['content'],
+	},
+	headers: { $ref: 'auth#' },
+	response: {
+		200: {
+			description: 'Successful response',
+			type: 'object',
+			properties: {
+				success: {
+					type: 'boolean',
+					enum: [true],
+				},
+				data: { $ref: 'comment#' },
+			},
+		},
+		401: {
+			description: 'Authentication error',
+			type: 'object',
+			properties: {
+				success: {
+					type: 'boolean',
+					enum: [false],
+				},
+				message: { type: 'string' },
+			},
+		},
+	},
+};
+
 export const deletePostCommentSchema = {
 	description: 'Deletes a comment on from post',
 	tags: ['comment'],

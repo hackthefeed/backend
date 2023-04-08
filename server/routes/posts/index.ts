@@ -2,8 +2,8 @@ import { prisma } from '$/database';
 import { server } from '$/server/server';
 import { createInsight } from '$/server/util';
 
-import { createNoteSchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema, postInsightsSchema, viewPostSchema } from './schema';
-import { CreateNoteSchemaBody, CreatePostCommnentSchema } from './types';
+import { createNoteSchema, createPostCommentReplySchema, createPostCommentSchema, deleteNoteSchema, deletePostCommentSchema, postCommentsSchema, postInsightsSchema, viewPostSchema } from './schema';
+import { CreateNoteSchemaBody, CreatePostCommentSchema } from './types';
 
 server.get<{
 	Params: { postId: string };
@@ -137,6 +137,7 @@ server.get<{
 		select: {
 			id: true,
 			content: true,
+			parentId: true,
 			author: {
 				select: {
 					id: true,
@@ -164,7 +165,7 @@ server.get<{
 });
 
 server.post<{
-	Body: CreatePostCommnentSchema;
+	Body: CreatePostCommentSchema;
 	Params: { postId: string };
 }>('/posts/:postId/comments', {
 	schema: createPostCommentSchema,
@@ -188,6 +189,7 @@ server.post<{
 			select: {
 				id: true,
 				content: true,
+				parentId: true,
 				author: {
 					select: {
 						id: true,
@@ -206,6 +208,59 @@ server.post<{
 		return response.status(404).send({
 			success: false,
 			message: 'Unknown postId.',
+		});
+	}
+});
+
+server.post<{
+	Body: CreatePostCommentSchema;
+	Params: { postId: string; commentId: string };
+}>('/posts/:postId/comments/:commentId/reply', {
+	schema: createPostCommentReplySchema,
+	preHandler: [server.auth],
+}, async (request, response) => {
+	try {
+		const comment = await prisma.comment.create({
+			data: {
+				content: request.body.content,
+				post: {
+					connect: {
+						id: request.params.postId,
+					},
+				},
+				author: {
+					connect: {
+						id: request.user.id,
+					},
+				},
+				parent: {
+					connect: {
+						id: request.params.commentId,
+					},
+				},
+			},
+			select: {
+				id: true,
+				content: true,
+				parentId: true,
+				author: {
+					select: {
+						id: true,
+						username: true,
+						displayName: true,
+					},
+				},
+			},
+		});
+
+		return response.status(200).send({
+			success: true,
+			data: comment,
+		});
+	} catch {
+		return response.status(404).send({
+			success: false,
+			message: 'Unknown postId or commentId.',
 		});
 	}
 });
